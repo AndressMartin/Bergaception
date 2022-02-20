@@ -4,20 +4,27 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Props_Add
-  m_Shader: {fileID: 4800000, guid: ea6bb6f56491c3542b706792ee8c4295, type: 3}
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -89,6 +96,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: b3d940e75e1f5d24684cd93a2758e1bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture:
         m_Texture: {fileID: 2800000, guid: bc99ed55056474946922c057f82ac16d, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -117,15 +128,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _AO_Power: 1.301
+    - _AlphaClip: 0
+    - _Blend: 0
     - _BumpScale: 1
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
     - _CoverageAmount: -0.373
     - _CoverageFalloff: 0.01
+    - _Cull: 2
     - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EdgeMultiplier: 1.395
+    - _EnvironmentReflections: 1
     - _Float1: 0
     - _FogAmount: 0.06
     - _FogDistance: 0.35
@@ -147,6 +177,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _ScaleFactor: 4
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
@@ -154,13 +186,16 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularSmoothness: 0.489
     - _SrcBlend: 1
+    - _Surface: 0
     - _TransitionDistance: 4.28
     - _TransitionFalloff: 0.73
     - _UVSec: 0
+    - _WorkflowMode: 1
     - _WorldtoObjectSwitch: 0
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Bot_XZ: {r: 0.7058823, g: 0.2024221, b: 0.2024221, a: 0}
     - _Bot_Y: {r: 0.3877363, g: 0.5955882, b: 0.188311, a: 0}
     - _Bottom: {r: 0, g: 0, b: 0, a: 0}
@@ -171,7 +206,9 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FogColor: {r: 1, g: 0, b: 0, a: 0}
     - _Fog_Color: {r: 0, g: 1, b: 0.7517242, a: 0}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
     - _Top: {r: 1, g: 0, b: 0, a: 0}
     - _Top_XZ: {r: 0.2569204, g: 0.5525266, b: 0.7279412, a: 0}
     - _Top_Y: {r: 0.7259277, g: 0.7647059, b: 0.06185123, a: 0}
+  m_BuildTextureStacks: []
