@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Event System/Void Event")]
 public class VoidEvent : ScriptableObject
 {
     private readonly List<VoidListener> eventListeners =
@@ -28,3 +29,4 @@ public class VoidEvent : ScriptableObject
             eventListeners.Remove(listener);
     }
 }
+

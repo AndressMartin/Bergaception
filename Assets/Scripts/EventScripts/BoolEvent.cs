@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class BoolEvent : MonoBehaviour
+[CreateAssetMenu(menuName = "Event System/Bool Event")]
+public class BoolEvent : ScriptableObject
 {
     private readonly List<BoolListener> eventListeners =
         new List<BoolListener>();
