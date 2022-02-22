@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         aiPath = GetComponent<AIPath>();
 
         enemyMovement.Inicar(this.gameObject,aiPath);
-        IA_enemy.Inicar(enemyMovement,player);
+        IA_enemy.Inicar(enemyMovement,player,this);
     }
 
     void Update()
@@ -33,5 +33,9 @@ public class Enemy : MonoBehaviour
         {
             IA_enemy.Main();
         }
+    }
+    public void Atacar()
+    {
+        Debug.Log("atacando");
     }
 }
