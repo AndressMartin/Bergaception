@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8563956501821386132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864137929335626467}
+  - component: {fileID: 2324684348591663267}
+  m_Layer: 0
+  m_Name: Mestre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &864137929335626467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563956501821386132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2324684348591663267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563956501821386132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68058756ac29d5c4aadf0619257752dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comandosHabilitados: {fileID: 11400000, guid: 59b0b1927c286f3419b26546fcad8ac0, type: 2}
+  andarDesabilitado: {fileID: 11400000, guid: 2f74b1e07cd742f48b629b4cb8552732, type: 2}
+  correrDesabilitado: {fileID: 11400000, guid: 439f8cdb0625df64ebde9d56156e84d0, type: 2}
+  puloDesabilitado: {fileID: 11400000, guid: f3759506079014a45b19087e539ffbac, type: 2}
+  ataqueDesabilitado: {fileID: 11400000, guid: df184e96429d5f94096ae4482efbee1b, type: 2}
+  naoCausarDano: {fileID: 11400000, guid: 5805b164d38ef004a9e3dbad46812a82, type: 2}
+  lentidao: {fileID: 11400000, guid: 3f316b5c41cbdda4a90894d003a6d462, type: 2}
+  semAr: {fileID: 11400000, guid: 0df5e8d2c10b0204eb24d642cb296666, type: 2}
+  semVisao: {fileID: 11400000, guid: d41298377544de2429034a6519fb8f5d, type: 2}
+  criarEspinhos: {fileID: 11400000, guid: fe9d2078e6b28dd4f8b85d2aa053dcd3, type: 2}
+  criarInimigos: {fileID: 11400000, guid: 1afb0a98e6d9af844b7108d98253ff76, type: 2}
+  superInimigos: {fileID: 11400000, guid: 08468d3b41a29ab4ab006ba699d45e25, type: 2}
