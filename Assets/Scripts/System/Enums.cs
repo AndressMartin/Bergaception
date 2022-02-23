@@ -24,6 +24,12 @@ namespace Enums
             Dialog,
             Dead
         }
+        public enum Tags
+        {
+            Player,
+            Enemy
+        }
     }
+
 }
 

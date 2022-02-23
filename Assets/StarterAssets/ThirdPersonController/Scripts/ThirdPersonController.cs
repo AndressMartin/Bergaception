@@ -79,6 +79,7 @@ namespace StarterAssets
 		private int _animIDSpeed;
 		private int _animIDGrounded;
 		private int _animIDJump;
+		private int _animIDAttack;
 		private int _animIDFreeFall;
 		private int _animIDMotionSpeed;
 
@@ -120,6 +121,7 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+			Attack();
 		}
 
 		private void LateUpdate()
@@ -134,6 +136,7 @@ namespace StarterAssets
 			_animIDJump = Animator.StringToHash("Jump");
 			_animIDFreeFall = Animator.StringToHash("FreeFall");
 			_animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+			_animIDAttack = Animator.StringToHash("Attacking");
 		}
 
 		private void GroundedCheck()
@@ -294,6 +297,15 @@ namespace StarterAssets
 			{
 				_verticalVelocity += Gravity * Time.deltaTime;
 			}
+		}
+
+		public void Attack()
+        {
+			if (_input.attack && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack3"))
+            {
+                _animator.SetBool(_animIDAttack, true);
+            }
+			_input.attack = false;
 		}
 
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
