@@ -6,6 +6,6 @@ public class Weapon : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Character>().ReceberDano(transform.root.GetComponent<Character>().Dano);
+        other?.GetComponent<Character>()?.ReceberDano(transform.root.GetComponent<Character>().Dano);
     }
 }

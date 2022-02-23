@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -80,6 +81,7 @@ namespace StarterAssets
 		private int _animIDGrounded;
 		private int _animIDJump;
 		private int _animIDAttack;
+		private int _animIDReaction;
 		private int _animIDFreeFall;
 		private int _animIDMotionSpeed;
 
@@ -87,6 +89,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		private Character player; 
 
 		private const float _threshold = 0.01f;
 
@@ -99,6 +102,8 @@ namespace StarterAssets
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
+			player = GetComponent<Character>();
+			player.recebeuDano += ReactToDamage;
 		}
 
 		private void Start()
@@ -124,7 +129,8 @@ namespace StarterAssets
 			Attack();
 		}
 
-		private void LateUpdate()
+
+        private void LateUpdate()
 		{
 			CameraRotation();
 		}
@@ -137,6 +143,7 @@ namespace StarterAssets
 			_animIDFreeFall = Animator.StringToHash("FreeFall");
 			_animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 			_animIDAttack = Animator.StringToHash("Attacking");
+			_animIDReaction = Animator.StringToHash("Reaction");
 		}
 
 		private void GroundedCheck()
@@ -308,6 +315,10 @@ namespace StarterAssets
 			_input.attack = false;
 		}
 
+		private void ReactToDamage()
+		{
+			_animator.SetTrigger(_animIDReaction);
+		}
 		private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
 		{
 			if (lfAngle < -360f) lfAngle += 360f;
