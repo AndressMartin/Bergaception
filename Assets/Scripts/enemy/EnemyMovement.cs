@@ -8,15 +8,16 @@ public class EnemyMovement : MonoBehaviour
     //componentes
     private GameObject targer;
     private AIPath aiPath;
+    private EnemyScriptObject enemyScriptObjectsManager;
 
     //variaveis
 
-    [SerializeField] private float velocidade;
+    private float velocidade;
     [SerializeField] private List<Transform> targetsPatrulha = new List<Transform>();
 
     //variavelControle
-    [SerializeField] private int indiceListaPatrulha;
-    [SerializeField] private bool patrulhaIdaVolta;
+    private int indiceListaPatrulha;
+    private bool patrulhaIdaVolta;
 
     public List<Transform> GetListaPatrulha => targetsPatrulha;
     public int GetIndiceListaPatrulha => indiceListaPatrulha;
@@ -24,7 +25,14 @@ public class EnemyMovement : MonoBehaviour
     {
         targer = _target;
         aiPath = _aIPath;
+        VerificarPontoMaisPertoRota();
         RotaIdaVolta();
+    }
+    public void ReceberScriptObject(EnemyScriptObject _enemyScriptObject)
+    {
+        enemyScriptObjectsManager = _enemyScriptObject;
+        velocidade = enemyScriptObjectsManager.GetVelocidade;
+        patrulhaIdaVolta = enemyScriptObjectsManager.GetPatrulhaIdaVolta;
     }
 
    
@@ -65,5 +73,21 @@ public class EnemyMovement : MonoBehaviour
                 }
             }
         }
+    }
+    void VerificarPontoMaisPertoRota()
+    {
+        int ponto0 = 0;
+        float menorPonto = 50;
+
+        for (int i = 0; i < targetsPatrulha.Count; i++)
+        {
+            float distancia = Vector3.Distance(transform.position, targetsPatrulha[i].transform.position);
+            if (distancia <= menorPonto)
+            {
+                ponto0 = i;
+                menorPonto = distancia;
+            }
+        }
+        indiceListaPatrulha = ponto0;
     }
 }

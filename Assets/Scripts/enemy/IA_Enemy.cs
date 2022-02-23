@@ -81,8 +81,7 @@ public class IA_Enemy : MonoBehaviour
             case EstadoMovimentacao.Patrulhando:
                 Patrulhar();
                 break;
-            default:
-                break;
+
         }
         switch (estadoAcoes)
         {
@@ -91,8 +90,7 @@ public class IA_Enemy : MonoBehaviour
                 break;
             case EstadoAcoes.FazerNada:
                 break;
-            default:
-                break;
+
         }
     }
    
@@ -110,7 +108,7 @@ public class IA_Enemy : MonoBehaviour
     }
     void RodearPlayer()
     {
-        Debug.Log("to rodeando");
+        Parar();
     }
     void Parar()
     {
@@ -118,7 +116,15 @@ public class IA_Enemy : MonoBehaviour
     }
     void IrAtePlayer()
     {
-        enemyMovement.Mover(objetoPlayer.transform.position);
+        if (!ChegouNaDistancia(objetoPlayer.transform.position))
+        {
+            enemyMovement.Mover(objetoPlayer.transform.position);
+        }
+        else
+        {
+            Parar();
+        }
+
     }
     void Atacar()
     {

@@ -9,11 +9,17 @@ public class Enemy : MonoBehaviour
     EnemyMovement enemyMovement;
     IA_Enemy IA_enemy;
     AIPath aiPath;
+    AtaqueFisico ataqueFisico;
+    Arma arma;
 
-    [SerializeField]GameObject player;
+
+    [SerializeField] EnemyScriptObject enemyScriptObjectsManager;
+    [SerializeField] GameObject player;
 
     //controle
     bool morto;
+    int vidaMax;
+    int vida;
 
     void Start()
     {
@@ -22,9 +28,17 @@ public class Enemy : MonoBehaviour
         enemyMovement = GetComponent<EnemyMovement>();
         IA_enemy = GetComponent<IA_Enemy>();
         aiPath = GetComponent<AIPath>();
+        ataqueFisico = GetComponentInChildren<AtaqueFisico>();
 
+        arma = enemyScriptObjectsManager.GetArma;
+        vidaMax = enemyScriptObjectsManager.GetVida;
+        vida = vidaMax;
+
+        enemyMovement.ReceberScriptObject(enemyScriptObjectsManager);
         enemyMovement.Inicar(this.gameObject,aiPath);
+
         IA_enemy.Inicar(enemyMovement,player,this);
+        ataqueFisico.Iniciar();
     }
 
     void Update()
@@ -36,6 +50,8 @@ public class Enemy : MonoBehaviour
     }
     public void Atacar()
     {
-        Debug.Log("atacando");
+        Debug.Log("animacao");
+        ataqueFisico.Atacando(arma.GetDano);
     }
+
 }
