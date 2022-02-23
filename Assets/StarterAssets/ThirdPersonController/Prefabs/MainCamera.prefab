@@ -41,7 +41,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944336655422409498}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.972549, g: 0.95686275, b: 0.92941177, a: 0}
@@ -58,7 +58,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.2
-  far clip plane: 5000
+  far clip plane: 500
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -84,7 +84,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944336655422409498}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &9078993845375825671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944336655422409498}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 

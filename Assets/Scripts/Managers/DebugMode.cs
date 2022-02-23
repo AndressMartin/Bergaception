@@ -9,6 +9,8 @@ public class DebugMode : MonoBehaviour
     private Mestre mestre;
     [SerializeField] private GameObject objeto;
 
+    private bool apertou = false;
+
     void Start()
     {
         mestre = FindObjectOfType<Mestre>();
@@ -17,11 +19,11 @@ public class DebugMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (input.)
+        if (Keyboard.current[Key.K].wasPressedThisFrame && apertou == false)
         {
-            mestre.AlterarPosicao(objeto, new Vector3(3, 1, 1));
+            mestre.MoverObjetoComTransicao(objeto, new Vector3(2, 2,5), 1);
+            apertou = true;
         }
-        */
+        
     }
 }

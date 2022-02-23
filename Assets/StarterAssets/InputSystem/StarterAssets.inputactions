@@ -238,12 +238,12 @@
         },
         {
             "name": "Debug",
-            "id": "d10dfbff-e60c-4a93-8288-10af9c64033e",
+            "id": "ff9c13b6-9373-4f74-9542-39ad52be60d8",
             "actions": [
                 {
-                    "name": "K",
+                    "name": "TeclaK",
                     "type": "Button",
-                    "id": "09595203-be6b-4bcf-8e0e-98a02841c39e",
+                    "id": "27711d5d-386e-487a-a6d7-005da351184f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -252,12 +252,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "a270451d-ddad-4e1e-9741-2d1e36dfa917",
+                    "id": "4b40d3c5-e489-4ed6-a736-0e88754fbf6a",
                     "path": "<Keyboard>/k",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "K",
+                    "action": "TeclaK",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

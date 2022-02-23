@@ -96,26 +96,42 @@ public class Mestre : Singleton<Mestre>
         CriarEfeito(efeitos[indice]);
     }
 
-    public void AlterarPosicao(GameObject objeto, Vector3 novaPosicao)
+    public void MoverObjeto(GameObject objeto, Vector3 novaPosicao)
     {
         objeto.transform.position = novaPosicao;
-        Debug.Log("Moveu");
     }
 
-    public void AlterarPosicaoComTransicao(GameObject objeto, Vector3 novaPosicao)
+    public void MoverObjetoComTransicao(GameObject objeto, Vector3 novaPosicao, float velocidade)
     {
-        StartCoroutine(MoverObjeto(objeto, novaPosicao));
+        StartCoroutine(MoverObjetoCorrotina(objeto, novaPosicao, velocidade));
     }
 
-    private IEnumerator MoverObjeto(GameObject objeto, Vector3 novaPosicao)
+    private IEnumerator MoverObjetoCorrotina(GameObject objeto, Vector3 novaPosicao, float velocidade)
     {
+        bool usaRigidbody = false;
+        Rigidbody rb = null;
+
+        if(objeto.GetComponent<Rigidbody>())
+        {
+            rb = objeto.GetComponent<Rigidbody>();
+
+            if(rb.isKinematic == false)
+            {
+                rb.isKinematic = true;
+                usaRigidbody = true;
+            }
+        }
+
         while (objeto.transform.position != novaPosicao)
         {
-            objeto.transform.position = Vector3.MoveTowards(transform.position, novaPosicao, 1 * Time.deltaTime);
-            Debug.Log("Se movendo");
+            objeto.transform.position = Vector3.MoveTowards(objeto.transform.position, novaPosicao, velocidade * Time.deltaTime);
 
             yield return null;
         }
-        Debug.Log("Terminou de mover");
+
+        if(usaRigidbody == true)
+        {
+            rb.isKinematic = false;
+        }
     }
 }
