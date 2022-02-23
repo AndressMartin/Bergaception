@@ -95,4 +95,27 @@ public class Mestre : Singleton<Mestre>
 
         CriarEfeito(efeitos[indice]);
     }
+
+    public void AlterarPosicao(GameObject objeto, Vector3 novaPosicao)
+    {
+        objeto.transform.position = novaPosicao;
+        Debug.Log("Moveu");
+    }
+
+    public void AlterarPosicaoComTransicao(GameObject objeto, Vector3 novaPosicao)
+    {
+        StartCoroutine(MoverObjeto(objeto, novaPosicao));
+    }
+
+    private IEnumerator MoverObjeto(GameObject objeto, Vector3 novaPosicao)
+    {
+        while (objeto.transform.position != novaPosicao)
+        {
+            objeto.transform.position = Vector3.MoveTowards(transform.position, novaPosicao, 1 * Time.deltaTime);
+            Debug.Log("Se movendo");
+
+            yield return null;
+        }
+        Debug.Log("Terminou de mover");
+    }
 }
