@@ -138,6 +138,7 @@ namespace StarterAssets
 			Move();
 			Attack();
 			Throw();
+			ApertarTeclaK();
 		}
 
 
@@ -373,6 +374,15 @@ namespace StarterAssets
 			CreatedCannonball.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * blastPower;
 			Debug.LogError("Test");
 		}
+
+		public void ApertarTeclaK()
+        {
+			if (_input.teclaK)
+            {
+				Debug.Log("Oh nao, apertei o K!");
+				_input.teclaK = false;
+            }
+        }
 
 		private void ReactToDamage()
 		{
