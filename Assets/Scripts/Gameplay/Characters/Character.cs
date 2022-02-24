@@ -68,8 +68,11 @@ public class Character : MonoBehaviour
     }
     public void DroparItem()
     {
-        item.Dropar();
-        item = null;
+        if (item != null)
+        {
+            item.Dropar();
+            item = null;
+        }
     }
 
     public void PegueiItenChao(ItemColetavel _item)
@@ -78,6 +81,6 @@ public class Character : MonoBehaviour
     }
     public void UsarItem()
     {
-        item.UsarItem();   
+        item?.UsarItem();   
     }
 }
