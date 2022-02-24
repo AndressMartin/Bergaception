@@ -140,6 +140,7 @@ namespace StarterAssets
 			Throw();
 			Interact();
 			DropItem();
+			ApertarTeclaK();
 		}
 
 
@@ -391,6 +392,15 @@ namespace StarterAssets
 			}
 			_input.dropItem = false;
 		}
+
+		public void ApertarTeclaK()
+        {
+			if (_input.teclaK)
+            {
+				Debug.Log("Oh nao, apertei o K!");
+				_input.teclaK = false;
+            }
+        }
 
 		private void ReactToDamage()
 		{

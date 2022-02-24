@@ -17,6 +17,7 @@ namespace StarterAssets
 		public bool throwItem;
 		public bool interact;
 		public bool dropItem;
+		public bool teclaK;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -59,6 +60,11 @@ namespace StarterAssets
 		public void OnDash(InputValue value)
         {
 			DashInput(value.isPressed);
+        }
+
+		public void OnTeclaK(InputValue value)
+        {
+			TeclaKInput(value.isPressed);
         }
 
 		public void OnThrow(InputValue value)
@@ -121,6 +127,11 @@ namespace StarterAssets
 		{
 			dropItem = newThrowState;
 		}
+
+		public void TeclaKInput(bool newTeclaKState)
+        {
+			teclaK = newTeclaKState;
+        }
 
 #if !UNITY_IOS || !UNITY_ANDROID
 

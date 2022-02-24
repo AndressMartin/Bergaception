@@ -7,6 +7,8 @@ public class ObjetoInteragivel : MonoBehaviour
 {
     private bool ativo;
     [SerializeField] private UnityEvent eventos;
+    [SerializeField]
+    private UnityEvent eventos;
 
     public bool Ativo => ativo;
 
