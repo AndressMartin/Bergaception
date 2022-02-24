@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RootMotionMovement : MonoBehaviour
+public class RootMotionMovement : Character
 {
     Animator animator;
     CharacterController cc;
@@ -20,4 +20,9 @@ public class RootMotionMovement : MonoBehaviour
         cc.Move(velocity);
     }
 
+    public override bool ReceberDano(int dano)
+    {
+        animator.SetTrigger("Reaction");
+        return base.ReceberDano(dano);
+    }
 }

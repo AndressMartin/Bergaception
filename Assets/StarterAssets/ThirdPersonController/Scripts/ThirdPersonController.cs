@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -66,6 +67,7 @@ namespace StarterAssets
 
 		// player
 		private float _speed;
+		private float _dashSpeed = 1f;
 		private float _animationBlend;
 		private float _targetRotation = 0.0f;
 		private float _rotationVelocity;
@@ -84,6 +86,7 @@ namespace StarterAssets
 		private int _animIDReaction;
 		private int _animIDFreeFall;
 		private int _animIDMotionSpeed;
+		private int _animIDThrow;
 
 		private Animator _animator;
 		private CharacterController _controller;
@@ -94,8 +97,15 @@ namespace StarterAssets
 		private const float _threshold = 0.01f;
 
 		private bool _hasAnimator;
+		//Throwing stuff
+		[SerializeField]
+        private GameObject itemToThrow;
+		[SerializeField]
+		private Transform ShotPoint;
+		[SerializeField]
+		private float blastPower;
 
-		private void Awake()
+        private void Awake()
 		{
 			// get a reference to our main camera
 			if (_mainCamera == null)
@@ -123,10 +133,11 @@ namespace StarterAssets
 		{
 			_hasAnimator = TryGetComponent(out _animator);
 			
-			JumpAndGravity();
+			JumpOrDash();
 			GroundedCheck();
 			Move();
 			Attack();
+			Throw();
 		}
 
 
@@ -144,6 +155,7 @@ namespace StarterAssets
 			_animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
 			_animIDAttack = Animator.StringToHash("Attacking");
 			_animIDReaction = Animator.StringToHash("Reaction");
+			_animIDThrow = Animator.StringToHash("Throw");
 		}
 
 		private void GroundedCheck()
@@ -176,16 +188,29 @@ namespace StarterAssets
 			CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
 		}
 
+		public Vector3 GetDirection()
+        {
+			return new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+		}
+
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
-			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+            // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
-			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-			// if there is no input, set the target speed to 0
-			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+            // if there is no input, set the target speed to 0
+            // if there is an input where no movement should happen, set the target speed to 0
+            
+			if (_input.move == Vector2.zero || 
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Throw") ||
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Reaction"))
+			{
+				Debug.Log("Speed is 0");
+				targetSpeed = 0.0f;
+			}
 
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
@@ -227,8 +252,12 @@ namespace StarterAssets
 			Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
 			// move the player
-			_controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
-
+			_controller.Move(targetDirection.normalized * (_speed * _dashSpeed * Time.deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+			if (_dashSpeed > 1f)
+			{
+				_dashSpeed = _dashSpeed - 0.1f;
+			}
+			else _dashSpeed = 1f;
 			// update animator if using character
 			if (_hasAnimator)
 			{
@@ -237,7 +266,7 @@ namespace StarterAssets
 			}
 		}
 
-		private void JumpAndGravity()
+		private void JumpOrDash()
 		{
 			if (Grounded)
 			{
@@ -247,6 +276,7 @@ namespace StarterAssets
 				// update animator if using character
 				if (_hasAnimator)
 				{
+					_animator.SetBool("Dash", false);
 					_animator.SetBool(_animIDJump, false);
 					_animator.SetBool(_animIDFreeFall, false);
 				}
@@ -257,16 +287,26 @@ namespace StarterAssets
 					_verticalVelocity = -2f;
 				}
 
-				// Jump
+				
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
 					// the square root of H * -2 * G = how much velocity needed to reach desired height
-					_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+						_verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
-					// update animator if using character
+					//update animator if using character
 					if (_hasAnimator)
 					{
 						_animator.SetBool(_animIDJump, true);
+					}
+				}
+				else if (_input.dash && _jumpTimeoutDelta <= 0.0f)
+                {
+					_verticalVelocity = Mathf.Sqrt(JumpHeight * -1.3f * Gravity);
+					_dashSpeed = 1.2f;
+
+					if (_hasAnimator)
+					{
+						_animator.SetBool("Dash", true);
 					}
 				}
 
@@ -297,6 +337,7 @@ namespace StarterAssets
 
 				// if we are not grounded, do not jump
 				_input.jump = false;
+				_input.dash = false;
 			}
 
 			// apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
@@ -308,11 +349,29 @@ namespace StarterAssets
 
 		public void Attack()
         {
-			if (_input.attack && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Attack3"))
+			if (_input.attack && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack3"))
             {
                 _animator.SetBool(_animIDAttack, true);
             }
 			_input.attack = false;
+		}
+
+		private void Throw()
+		{
+            if (_input.throwItem && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Throw"))
+            {
+				_animator.SetTrigger(_animIDThrow);
+			}
+			_input.throwItem = false;
+		}
+
+		public void ThrowItem()
+        {
+			GameObject CreatedCannonball = Instantiate(itemToThrow, ShotPoint.position, ShotPoint.rotation);
+			CreatedCannonball.transform.position = ShotPoint.transform.position;
+			CreatedCannonball.transform.rotation = ShotPoint.transform.rotation;
+			CreatedCannonball.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * blastPower;
+			Debug.LogError("Test");
 		}
 
 		private void ReactToDamage()

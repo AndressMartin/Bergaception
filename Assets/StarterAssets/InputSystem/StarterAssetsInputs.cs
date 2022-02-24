@@ -13,6 +13,8 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool attack;
+		public bool dash;
+		public bool throwItem;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -51,6 +53,16 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnDash(InputValue value)
+        {
+			DashInput(value.isPressed);
+        }
+
+		public void OnThrow(InputValue value)
+        {
+			ThrowInput(value.isPressed);
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -80,6 +92,16 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
+
+		public void DashInput(bool newDashState)
+        {
+			dash = newDashState;
+        }
+
+		public void ThrowInput(bool newThrowState)
+        {
+			throwItem = newThrowState;
+        }
 
 #if !UNITY_IOS || !UNITY_ANDROID
 

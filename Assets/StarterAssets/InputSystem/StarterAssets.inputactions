@@ -46,10 +46,18 @@
                     "interactions": ""
                 },
                 {
-                    "name": "HoldToLook",
-                    "type": "Value",
-                    "id": "566e969c-a675-48b1-a948-2620b33b40a6",
-                    "expectedControlType": "",
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "a6ecc0a1-e976-4eb0-931f-74fd4edb415d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Throw",
+                    "type": "Button",
+                    "id": "9409f046-889c-4f9e-a956-e3b94314c253",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -233,23 +241,34 @@
                 },
                 {
                     "name": "",
-                    "id": "7c547159-3a34-4185-87a4-da94a9e2d0c4",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "HoldToLook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "425fd148-040b-4a89-aa66-020832a28a07",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "17f92ccd-4f43-4dab-a00f-6c28273daecc",
+                    "path": "<Keyboard>/space",
+                    "interactions": "MultiTap",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "402e52fc-611e-43a0-99d7-3d735d15d1b3",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Throw",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

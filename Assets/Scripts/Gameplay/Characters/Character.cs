@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     private CharacterSO stats;
     private Animator animator;
     public UnityAction recebeuDano;
+    public Weapon weapon;
     public int Dano => dano;
     private void Awake()
     {
@@ -33,10 +34,21 @@ public class Character : MonoBehaviour
         
     }
 
-    public bool ReceberDano(int dano)
+    public virtual bool ReceberDano(int dano)
     {
         vida -= dano;
         recebeuDano?.Invoke();
         return true;
+    }
+
+    public virtual void ReceberKnockBack(Vector3 directionOfKnockback)
+    {
+        Quaternion rotation = Quaternion.LookRotation(directionOfKnockback, Vector3.up);
+        transform.rotation = Quaternion.Inverse(rotation);
+    }
+
+    public void ToggleWeaponCollide()
+    {
+        weapon.ToggleAttack();
     }
 }

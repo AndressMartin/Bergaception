@@ -62,10 +62,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Grounded
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: GotHit
+    m_ConditionEvent: Reaction
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9060602196580253997}
@@ -131,7 +128,7 @@ AnimatorStateMachine:
     m_Position: {x: 0, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9060602196580253997}
-    m_Position: {x: 140.52472, y: 192.02995, z: 0}
+    m_Position: {x: 140, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8980848952544059842}
     m_Position: {x: 580, y: 400, z: 0}
@@ -399,7 +396,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: GotHit
+  - m_Name: Reaction
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
