@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ObjetoInteragivel : MonoBehaviour
 {
     private bool ativo;
-    private UnityEvent eventos;
+    [SerializeField] private UnityEvent eventos;
 
     public bool Ativo => ativo;
 

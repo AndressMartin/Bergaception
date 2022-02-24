@@ -10,10 +10,10 @@ public class Interacao : MonoBehaviour
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider>();
-    }
-
+    } 
     public void Interagir()
     {
+
         Collider[] hitColliders = Physics.OverlapBox(boxCollider.bounds.center, boxCollider.bounds.extents, Quaternion.identity, m_LayerMask);
 
         foreach(Collider objeto in hitColliders)

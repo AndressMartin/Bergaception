@@ -15,6 +15,8 @@ namespace StarterAssets
 		public bool attack;
 		public bool dash;
 		public bool throwItem;
+		public bool interact;
+		public bool dropItem;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -63,6 +65,15 @@ namespace StarterAssets
         {
 			ThrowInput(value.isPressed);
         }
+
+		public void OnInteractIten(InputValue value)
+		{
+			Interact(value.isPressed);
+		}
+		public void OnDropItem(InputValue value)
+		{
+			DropItem(value.isPressed);
+		}
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -102,6 +113,14 @@ namespace StarterAssets
         {
 			throwItem = newThrowState;
         }
+		public void Interact(bool newThrowState)
+		{
+			interact = newThrowState;
+		}
+		public void DropItem(bool newThrowState)
+		{
+			dropItem = newThrowState;
+		}
 
 #if !UNITY_IOS || !UNITY_ANDROID
 
