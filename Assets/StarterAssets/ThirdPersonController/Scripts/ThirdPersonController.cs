@@ -142,6 +142,8 @@ namespace StarterAssets
 			Move();
 			Attack();
 			Throw();
+			Interact();
+			DropItem();
 			ApertarTeclaK();
 			Morrer();
 			Interagir();
@@ -381,6 +383,22 @@ namespace StarterAssets
 			CreatedCannonball.transform.rotation = ShotPoint.transform.rotation;
 			CreatedCannonball.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * blastPower;
 			Debug.LogError("Test");
+		}
+		public void Interact()
+        {
+			if(_input.interact)
+            {
+				player.InteracaoItem();
+            }
+			_input.interact = false;
+        }
+		public void DropItem()
+		{
+			if (_input.dropItem)
+			{
+				player.DroparItem();
+			}
+			_input.dropItem = false;
 		}
 
 		public void ApertarTeclaK()

@@ -15,6 +15,9 @@ public class Character : MonoBehaviour
     private Animator animator;
     public UnityAction recebeuDano;
     public Weapon weapon;
+
+    [SerializeField] private ItemColetavel item;
+
     public int Dano => dano;
     public int Vida => vida;
     private void Awake()
@@ -30,11 +33,23 @@ public class Character : MonoBehaviour
         if (animator.runtimeAnimatorController)
             animator.runtimeAnimatorController = stats.animatorOverride;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void InteracaoItem()
     {
-        
+        if (item == null)   //pegar Item
+        {
+            FindObjectOfType<Interacao>().Interagir();
+        }
+        else if (item != null) //Usar item
+        {     
+            UsarItem();
+        }
+    }
+    public void SoltarItem()
+    {
+        if (item != null)
+        {     
+            DroparItem();   
+        }
     }
 
     public virtual bool ReceberDano(int dano)
@@ -53,5 +68,22 @@ public class Character : MonoBehaviour
     public void ToggleWeaponCollide()
     {
         weapon.ToggleAttack();
+    }
+    public void DroparItem()
+    {
+        if (item != null)
+        {
+            item.Dropar();
+            item = null;
+        }
+    }
+
+    public void PegueiItenChao(ItemColetavel _item)
+    {
+        item = _item;
+    }
+    public void UsarItem()
+    {
+        item?.UsarItem();   
     }
 }
