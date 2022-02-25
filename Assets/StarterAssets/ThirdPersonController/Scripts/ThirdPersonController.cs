@@ -128,9 +128,10 @@ namespace StarterAssets
 
 			_input.SetThrowActions();
 			_input.throwStarted.AddListener(ThrowStarted);
-			_input.throwPerformed.AddListener(ThrowPerformed);
+            _input.throwPerformed.AddListener(ThrowPerformed);
+			_input.throwCanceled.AddListener(ThrowCanceled);
 
-			AssignAnimationIDs();
+            AssignAnimationIDs();
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -386,14 +387,17 @@ namespace StarterAssets
 
 		private void ThrowPerformed()
 		{
-			Debug.LogWarning("Thow began");
 			_animator.SetTrigger("EndThrow");
 		}
 
 		private void ThrowStarted()
 		{
-			Debug.LogWarning("Thow ended");
 			_animator.SetTrigger(_animIDThrow);
+		}
+
+		private void ThrowCanceled()
+		{
+			_animator.SetTrigger("CancelThrow");
 		}
 
 		public void ThrowItem()

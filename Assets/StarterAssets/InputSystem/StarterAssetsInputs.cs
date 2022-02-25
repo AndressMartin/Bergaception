@@ -25,6 +25,7 @@ namespace StarterAssets
 		public InputActionReference throwActionReference;
 		public UnityEvent throwStarted;
 		public UnityEvent throwPerformed;
+		public UnityEvent throwCanceled;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -46,6 +47,10 @@ namespace StarterAssets
 			throwActionReference.action.performed += context =>
 			{
 				throwPerformed.Invoke();
+			};
+			throwActionReference.action.canceled += context =>
+			{
+				throwCanceled.Invoke();
 			};
         }
 
