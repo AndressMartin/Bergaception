@@ -10,6 +10,7 @@ public class DialogManager : MonoBehaviour
     private DialogSO dialog;
     [SerializeField]
     private TextMeshProUGUI text;
+    private Letreiro letreiro;
     private int part = -1;
     private float maxTime = 0f;
     [SerializeField]
@@ -19,10 +20,21 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     private bool waitingForEvent = false;
     private bool playing = false;
+
+    private int letrasVisiveis;
+
+    public int LetrasVisiveis => letrasVisiveis;
+
+    public void SetLetrasVisiveis(int letrasVisiveis)
+    {
+        this.letrasVisiveis = letrasVisiveis;
+    }
+
     private void Awake()
     {
         time = maxTime;
         dialog.WarnEventWasSuccessful();
+        letreiro = GetComponent<Letreiro>();
     }
     public void PlayDialog()
     {
@@ -36,6 +48,8 @@ public class DialogManager : MonoBehaviour
 
     private IEnumerator PlayDialogAsync()
     {
+        letrasVisiveis = 0;
+
         while(part +1 < dialog._textList.Count)
         {
             time -= Time.deltaTime;
@@ -50,6 +64,7 @@ public class DialogManager : MonoBehaviour
                 part++;
                 if (dialog._textList[part].type == TextType.New)
                 {
+                    letrasVisiveis = 0;
                     text.text = "";
                     text.text = dialog._textList[part].text;
                 }
@@ -63,6 +78,9 @@ public class DialogManager : MonoBehaviour
                     text.GetComponent<TextAnimator>().activateAnimation = true;
                 }
                 else text.GetComponent<TextAnimator>().activateAnimation = false;
+
+                yield return letreiro.EscreverTexto(text, dialog._textList[part].text, this);
+
                 maxTime = dialog._textList[part].timeToWait;
                 time = maxTime;
             }

@@ -42,7 +42,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 933745594808865061, guid: 8dd4c9757a0042b47a8ac9b6ec7f298c, type: 3}
       propertyPath: m_Name
-      value: ItemUI (1)
+      value: ItemUI
       objectReference: {fileID: 0}
     - target: {fileID: 1170821830259177884, guid: 8dd4c9757a0042b47a8ac9b6ec7f298c, type: 3}
       propertyPath: m_LocalScale.x
@@ -574,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 8400000, guid: 49407c495cd31364e9a2f8e3e2daa3d4, type: 2}
     - target: {fileID: 8688555564714650331, guid: cad7768ba51462c4eb0a5bf10414144d, type: 3}
       propertyPath: m_Name
-      value: Arma (1)
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 8688555564714650332, guid: cad7768ba51462c4eb0a5bf10414144d, type: 3}
       propertyPath: m_Pivot.x

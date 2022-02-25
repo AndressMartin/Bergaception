@@ -7,7 +7,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Dialog/Dialog Sequence")]
 public class DialogSO : ScriptableObject
 {
-    public UnityEvent dialogRaised; 
+    public UnityEvent dialogRaised;
     public List<DialogLine> _textList;
 
     public void WarnEventWasSuccessful()
