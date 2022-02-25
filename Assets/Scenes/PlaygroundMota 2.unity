@@ -1536,8 +1536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f2407bebcbedc4582c8e2904db4c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
-  vidaMax: 0
+  vida: 20
+  vidaMax: 20
   weapon: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &4416926083347132232

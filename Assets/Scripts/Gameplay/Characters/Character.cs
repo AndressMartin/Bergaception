@@ -86,4 +86,9 @@ public class Character : MonoBehaviour
     {
         item?.UsarItem();   
     }
+
+    public bool TemItem()
+    {
+        return item;
+    }
 }

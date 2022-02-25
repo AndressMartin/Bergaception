@@ -89,6 +89,8 @@ namespace StarterAssets
 		private int _animIDThrow;
         private int _animIDDying;
 		private int _animIDInteract;
+		private int _animIDUse;
+		private int _animIDDropItem;
 
         private Animator _animator;
 		private CharacterController _controller;
@@ -164,6 +166,8 @@ namespace StarterAssets
 			_animIDThrow = Animator.StringToHash("Throw");
 			_animIDDying = Animator.StringToHash("Dying");
 			_animIDInteract = Animator.StringToHash("Interact");
+			_animIDDropItem = Animator.StringToHash("DropItem");
+			_animIDUse = Animator.StringToHash("Use");
 		}
 
 		private void GroundedCheck()
@@ -214,7 +218,10 @@ namespace StarterAssets
             
 			if (_input.move == Vector2.zero || 
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Throw") ||
-				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Reaction"))
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Reaction") ||
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DropItem") ||
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Use") ||
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Dying"))
 			{
 				Debug.Log("Speed is 0");
 				targetSpeed = 0.0f;
@@ -383,8 +390,9 @@ namespace StarterAssets
 		}
 		public void DropItem()
 		{
-			if (_input.dropItem)
+			if (_input.dropItem && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DropItem"))
 			{
+				_animator.SetTrigger(_animIDDropItem);
 				player.DroparItem();
 			}
 			_input.dropItem = false;
@@ -408,10 +416,21 @@ namespace StarterAssets
 		}
 		private void Interagir()
 		{
-			if (_input.interact && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Interact"))
+			if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Interact") ||
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Use")) return;
+
+			if (_input.interact)
             {
-				_animator.SetTrigger(_animIDInteract);
-				player.InteracaoItem();
+                if (player.TemItem())
+                {
+					_animator.SetTrigger(_animIDUse);
+					player.UsarItem();
+                }
+                else
+                {
+					_animator.SetTrigger(_animIDInteract);
+					player.InteracaoItem();
+				}
 			}
 			_input.interact = false;
 		}
