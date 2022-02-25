@@ -16,7 +16,6 @@ namespace StarterAssets
 		public bool sprint;
 		public bool attack;
 		public bool dash;
-		public bool throwItem;
 		public bool teclaK;
 		public bool interact;
 		public bool dropItem;
@@ -134,11 +133,6 @@ namespace StarterAssets
 		public void DashInput(bool newDashState)
         {
 			dash = newDashState;
-        }
-
-		public void ThrowInput(bool newThrowState)
-        {
-			throwItem = newThrowState;
         }
 
 		public void TeclaKInput(bool newTeclaKState)

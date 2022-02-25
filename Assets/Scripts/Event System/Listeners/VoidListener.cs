@@ -23,6 +23,7 @@ public class VoidListener : MonoBehaviour
 
     public void OnEventRaised()
     {
+        Debug.Log($"{Event.name } was raised by {Response.GetPersistentMethodName(0)}");
         Response.Invoke();
     }
 }

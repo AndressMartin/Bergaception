@@ -12,6 +12,11 @@ public class TextAnimator : MonoBehaviour
     [Range(1.0f, 20.0f)]
     public float speed;
     public TextAnimation textAnimation;
+    public TextActivation textActivation;
+    int symbol;
+    int lastSymbol;
+    public string originalText;
+    public string textToAnimate;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +26,13 @@ public class TextAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!activateAnimation) return;
+        if (!activateAnimation)
+        {
 
-        if(textAnimation == TextAnimation.Wobbly)
+            return;
+        }
+
+        if (textAnimation == TextAnimation.Wobbly)
         {
             WobblyAnimation();
         }
@@ -33,8 +42,7 @@ public class TextAnimator : MonoBehaviour
     {
         text.ForceMeshUpdate();
         var textInfo = text.textInfo;
-
-        for (int i = 0; i < textInfo.characterCount; ++i)
+        for (int i = symbol; i < lastSymbol-4; ++i)
         {
             var charInfo = textInfo.characterInfo[i];
             if (!charInfo.isVisible) continue;
@@ -55,8 +63,37 @@ public class TextAnimator : MonoBehaviour
         }
     }
 
+    public void ActivateSymbols()
+    {
+        text.enabled = false;
+        text.enabled = true;
+        originalText = text.text;
+        symbol = text.text.IndexOf("[w] ");
+        Debug.Log(symbol);
+        lastSymbol = text.text.LastIndexOf(" [w]");
+        Debug.Log(lastSymbol);
+        var nextText = text.text.Remove(symbol, 4);
+        nextText = nextText.Remove(lastSymbol - 4, 4);
+        text.text = nextText;
+        text.ForceMeshUpdate();
+        text.UpdateMeshPadding();
+        for (int l = 0; l < text.textInfo.meshInfo.Length; ++l)
+        {
+            var meshInfo = text.textInfo.meshInfo[l];
+            meshInfo.mesh.vertices = meshInfo.vertices;
+            text.UpdateGeometry(meshInfo.mesh, l);
+        }
+    }
+
     public enum TextAnimation
     {
         Wobbly
     }
+
+    public enum TextActivation 
+    {
+        NotAnimated,
+        Animated
+    }
+
 }
