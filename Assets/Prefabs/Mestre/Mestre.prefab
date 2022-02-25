@@ -48,6 +48,7 @@ MonoBehaviour:
   correrDesabilitado: {fileID: 11400000, guid: 439f8cdb0625df64ebde9d56156e84d0, type: 2}
   puloDesabilitado: {fileID: 11400000, guid: f3759506079014a45b19087e539ffbac, type: 2}
   ataqueDesabilitado: {fileID: 11400000, guid: df184e96429d5f94096ae4482efbee1b, type: 2}
+  efeitosDesativados: {fileID: 11400000, guid: be535cd5f3200df4691208eb62d4302c, type: 2}
   naoCausarDano: {fileID: 11400000, guid: 5805b164d38ef004a9e3dbad46812a82, type: 2}
   lentidao: {fileID: 11400000, guid: 3f316b5c41cbdda4a90894d003a6d462, type: 2}
   semAr: {fileID: 11400000, guid: 0df5e8d2c10b0204eb24d642cb296666, type: 2}
