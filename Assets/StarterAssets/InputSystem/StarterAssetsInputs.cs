@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
@@ -17,6 +18,7 @@ namespace StarterAssets
 		public bool throwItem;
 		public bool teclaK;
 		public bool interact;
+		public bool dropItem;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -75,12 +77,17 @@ namespace StarterAssets
         {
 			InteractInput(value.isPressed);
         }
+		public void OnDropItem(InputValue value)
+		{
+			DropInput(value.isPressed);
+		}
+
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -124,6 +131,11 @@ namespace StarterAssets
         {
 			interact = newInteractState;
         }
+
+		private void DropInput(bool newDropState)
+		{
+			dropItem = newDropState;
+		}
 
 #if !UNITY_IOS || !UNITY_ANDROID
 

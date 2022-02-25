@@ -95,8 +95,6 @@ namespace StarterAssets
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
 		private Character player;
-		[SerializeField]
-		private Interacao interacao;
 
 		private const float _threshold = 0.01f;
 
@@ -142,7 +140,6 @@ namespace StarterAssets
 			Move();
 			Attack();
 			Throw();
-			Interact();
 			DropItem();
 			ApertarTeclaK();
 			Morrer();
@@ -384,14 +381,6 @@ namespace StarterAssets
 			CreatedCannonball.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * blastPower;
 			Debug.LogError("Test");
 		}
-		public void Interact()
-        {
-			if(_input.interact)
-            {
-				player.InteracaoItem();
-            }
-			_input.interact = false;
-        }
 		public void DropItem()
 		{
 			if (_input.dropItem)
@@ -422,7 +411,7 @@ namespace StarterAssets
 			if (_input.interact && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Interact"))
             {
 				_animator.SetTrigger(_animIDInteract);
-				interacao.Interagir();
+				player.InteracaoItem();
 			}
 			_input.interact = false;
 		}
