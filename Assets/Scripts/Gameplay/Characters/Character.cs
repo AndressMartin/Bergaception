@@ -5,7 +5,9 @@ using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField]
     private int vida;
+    [SerializeField]
     private int vidaMax;
     private int dano;
     private int velocidade;
@@ -14,6 +16,7 @@ public class Character : MonoBehaviour
     public UnityAction recebeuDano;
     public Weapon weapon;
     public int Dano => dano;
+    public int Vida => vida;
     private void Awake()
     {
         

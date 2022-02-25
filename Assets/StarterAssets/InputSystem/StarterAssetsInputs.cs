@@ -16,6 +16,7 @@ namespace StarterAssets
 		public bool dash;
 		public bool throwItem;
 		public bool teclaK;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -69,6 +70,11 @@ namespace StarterAssets
         {
 			ThrowInput(value.isPressed);
         }
+
+		public void OnInteract(InputValue value)
+        {
+			InteractInput(value.isPressed);
+        }
 #else
 	// old input sys if we do decide to have it (most likely wont)...
 #endif
@@ -112,6 +118,11 @@ namespace StarterAssets
 		public void TeclaKInput(bool newTeclaKState)
         {
 			teclaK = newTeclaKState;
+        }
+
+		public void InteractInput(bool newInteractState)
+        {
+			interact = newInteractState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

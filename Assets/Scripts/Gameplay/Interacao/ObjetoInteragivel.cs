@@ -24,5 +24,6 @@ public class ObjetoInteragivel : MonoBehaviour
     public void Interagir()
     {
         eventos?.Invoke();
+        Debug.Log("Intecao com " + gameObject.name);
     }
 }

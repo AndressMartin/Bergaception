@@ -87,12 +87,16 @@ namespace StarterAssets
 		private int _animIDFreeFall;
 		private int _animIDMotionSpeed;
 		private int _animIDThrow;
+        private int _animIDDying;
+		private int _animIDInteract;
 
-		private Animator _animator;
+        private Animator _animator;
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
-		private Character player; 
+		private Character player;
+		[SerializeField]
+		private Interacao interacao;
 
 		private const float _threshold = 0.01f;
 
@@ -139,6 +143,8 @@ namespace StarterAssets
 			Attack();
 			Throw();
 			ApertarTeclaK();
+			Morrer();
+			Interagir();
 		}
 
 
@@ -157,6 +163,8 @@ namespace StarterAssets
 			_animIDAttack = Animator.StringToHash("Attacking");
 			_animIDReaction = Animator.StringToHash("Reaction");
 			_animIDThrow = Animator.StringToHash("Throw");
+			_animIDDying = Animator.StringToHash("Dying");
+			_animIDInteract = Animator.StringToHash("Interact");
 		}
 
 		private void GroundedCheck()
@@ -383,6 +391,23 @@ namespace StarterAssets
 				_input.teclaK = false;
             }
         }
+
+		private void Morrer()
+		{
+			if(player.Vida <= 0 && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Dying"))
+            {
+				_animator.SetTrigger(_animIDDying);
+            }
+		}
+		private void Interagir()
+		{
+			if (_input.interact && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Interact"))
+            {
+				_animator.SetTrigger(_animIDInteract);
+				interacao.Interagir();
+			}
+			_input.interact = false;
+		}
 
 		private void ReactToDamage()
 		{
