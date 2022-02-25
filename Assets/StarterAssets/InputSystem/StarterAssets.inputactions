@@ -59,7 +59,7 @@
                     "id": "9409f046-889c-4f9e-a956-e3b94314c253",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "SlowTap"
                 },
                 {
                     "name": "Interact",

@@ -312,6 +312,14 @@ MonoBehaviour:
   throwItem: 0
   teclaK: 0
   interact: 0
+  dropItem: 0
+  throwActionReference: {fileID: 6523783586856198617, guid: 4419d82f33d36e848b3ed5af4c8da37e, type: 3}
+  throwStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  throwPerformed:
+    m_PersistentCalls:
+      m_Calls: []
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -363,8 +371,8 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
-  interacao: {fileID: 1545068285}
   itemToThrow: {fileID: 8050475254650180602, guid: 8c668d7a89c0c914594293dd77c0116b, type: 3}
+  projection: {fileID: 228930413}
   ShotPoint: {fileID: 639663724510701683}
   blastPower: 7
 --- !u!143 &27082097
@@ -419,6 +427,7 @@ MonoBehaviour:
   vida: 20
   vidaMax: 20
   weapon: {fileID: 649154095}
+  item: {fileID: 0}
 --- !u!1 &42090499
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +942,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228930413 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2722440784262695367, guid: 01143b13e205d1c49bf76f8ccdca1fb9, type: 3}
+  m_PrefabInstance: {fileID: 8295648305282339081}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490f685b62bf6164dbced27c9fbbeb01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &260723224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2042,6 +2062,7 @@ MonoBehaviour:
   vida: 0
   vidaMax: 0
   weapon: {fileID: 0}
+  item: {fileID: 0}
 --- !u!1 &1097618530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,6 +3493,14 @@ PrefabInstance:
     - target: {fileID: 639000203374009916, guid: 01143b13e205d1c49bf76f8ccdca1fb9, type: 3}
       propertyPath: m_Name
       value: ShotPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722440784262695367, guid: 01143b13e205d1c49bf76f8ccdca1fb9, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 27082096}
+    - target: {fileID: 3171413649626182028, guid: 01143b13e205d1c49bf76f8ccdca1fb9, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.050561905
       objectReference: {fileID: 0}
     - target: {fileID: 8917297595274312058, guid: 01143b13e205d1c49bf76f8ccdca1fb9, type: 3}
       propertyPath: m_RootOrder

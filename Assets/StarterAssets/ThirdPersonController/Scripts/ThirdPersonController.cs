@@ -105,9 +105,9 @@ namespace StarterAssets
 		[SerializeField]
         private GameObject itemToThrow;
 		[SerializeField]
-		private Transform ShotPoint;
-		[SerializeField]
-		private float blastPower;
+		private DrawProjection projection;
+		public Transform ShotPoint;
+		public float blastPower;
 
         private void Awake()
 		{
@@ -126,6 +126,10 @@ namespace StarterAssets
 			_controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 
+			_input.SetThrowActions();
+			_input.throwStarted.AddListener(ThrowStarted);
+			_input.throwPerformed.AddListener(ThrowPerformed);
+
 			AssignAnimationIDs();
 
 			// reset our timeouts on start
@@ -133,7 +137,7 @@ namespace StarterAssets
 			_fallTimeoutDelta = FallTimeout;
 		}
 
-		private void Update()
+        private void Update()
 		{
 			_hasAnimator = TryGetComponent(out _animator);
 			
@@ -141,7 +145,7 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 			Attack();
-			Throw();
+			//Throw();
 			DropItem();
 			ApertarTeclaK();
 			Morrer();
@@ -209,14 +213,14 @@ namespace StarterAssets
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
-            // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+				// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+				// if there is no input, set the target speed to 0
+				// if there is an input where no movement should happen, set the target speed to 0
 
-            // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is no input, set the target speed to 0
-            // if there is an input where no movement should happen, set the target speed to 0
-            
 			if (_input.move == Vector2.zero || 
+				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.EndThrow") ||
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Throw") ||
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Reaction") ||
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.DropItem") ||
@@ -371,13 +375,25 @@ namespace StarterAssets
 			_input.attack = false;
 		}
 
-		private void Throw()
+		//private void Throw()
+		//{
+  //          if (_input.throwItem && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Throw"))
+  //          {
+		//		_animator.SetTrigger(_animIDThrow);
+		//	}
+		//	_input.throwItem = false;
+		//}
+
+		private void ThrowPerformed()
 		{
-            if (_input.throwItem && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Throw"))
-            {
-				_animator.SetTrigger(_animIDThrow);
-			}
-			_input.throwItem = false;
+			Debug.LogWarning("Thow began");
+			_animator.SetTrigger("EndThrow");
+		}
+
+		private void ThrowStarted()
+		{
+			Debug.LogWarning("Thow ended");
+			_animator.SetTrigger(_animIDThrow);
 		}
 
 		public void ThrowItem()
@@ -434,6 +450,11 @@ namespace StarterAssets
 			}
 			_input.interact = false;
 		}
+
+		public void ToggleProjection()
+        {
+			projection.draw = !projection.draw;
+        }
 
 		private void ReactToDamage()
 		{

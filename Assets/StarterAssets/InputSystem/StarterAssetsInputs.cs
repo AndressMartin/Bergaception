@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -20,6 +21,11 @@ namespace StarterAssets
 		public bool interact;
 		public bool dropItem;
 
+		//Throwing action
+		public InputActionReference throwActionReference;
+		public UnityEvent throwStarted;
+		public UnityEvent throwPerformed;
+
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -30,7 +36,20 @@ namespace StarterAssets
 #endif
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
-		public void OnMove(InputValue value)
+
+        public void SetThrowActions()
+        {
+			throwActionReference.action.started += context =>
+			{
+				throwStarted.Invoke();
+			};
+			throwActionReference.action.performed += context =>
+			{
+				throwPerformed.Invoke();
+			};
+        }
+
+        public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
 		}
@@ -66,11 +85,6 @@ namespace StarterAssets
 		public void OnTeclaK(InputValue value)
         {
 			TeclaKInput(value.isPressed);
-        }
-
-		public void OnThrow(InputValue value)
-        {
-			ThrowInput(value.isPressed);
         }
 
 		public void OnInteract(InputValue value)
