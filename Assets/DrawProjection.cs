@@ -25,6 +25,7 @@ public class DrawProjection : MonoBehaviour
 
     void Update()
     {
+        lineRenderer.enabled = draw;
         if (!draw) return;
 
         lineRenderer.positionCount = (int)numPoints;
