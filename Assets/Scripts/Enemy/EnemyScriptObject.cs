@@ -9,7 +9,7 @@ public class EnemyScriptObject : CharacterSO
     [SerializeField] private bool patrulhaIdaVolta;
     [SerializeField] private Arma arma;
     [SerializeField] private AnimatorOverrideController animatorOverrideController;
-    public int GetVida => vidaMax;
+    public int GetVidaMax => vidaMax;
     public float GetVelocidade => velocidade;
     public bool GetPatrulhaIdaVolta => patrulhaIdaVolta;
     public Arma GetArma => arma;

@@ -3,42 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Character
 {
     //componente
     EnemyMovement enemyMovement;
     IA_Enemy IA_enemy;
     AIPath aiPath;
-    AtaqueFisico ataqueFisico;
-    Arma arma;
-
-
-    [SerializeField] EnemyScriptObject enemyScriptObjectsManager;
     [SerializeField] GameObject player;
 
     //controle
-    bool morto;
-    int vidaMax;
-    int vida;
+
+    public override void Init(CharacterSO stats)
+    {
+        EnemyScriptObject _stats = (EnemyScriptObject)stats;
+
+        vidaMax = _stats.GetVidaMax;
+        vida = vidaMax;
+        dano = _stats.GetArma.GetDano;
+    }
 
     void Start()
     {
-        morto = false;
-
+        Init(script);
         enemyMovement = GetComponent<EnemyMovement>();
         IA_enemy = GetComponent<IA_Enemy>();
         aiPath = GetComponent<AIPath>();
-        ataqueFisico = GetComponentInChildren<AtaqueFisico>();
+        
+        player = FindObjectOfType<Character>().gameObject;
 
-        arma = enemyScriptObjectsManager.GetArma;
-        vidaMax = enemyScriptObjectsManager.GetVida;
-        vida = vidaMax;
-
-        enemyMovement.ReceberScriptObject(enemyScriptObjectsManager);
+        enemyMovement.ReceberScriptObject((EnemyScriptObject)script);
         enemyMovement.Inicar(this.gameObject,aiPath);
 
         IA_enemy.Inicar(enemyMovement,player,this);
-        ataqueFisico.Iniciar();
     }
 
     void Update()
@@ -47,11 +43,17 @@ public class Enemy : MonoBehaviour
         {
             IA_enemy.Main();
         }
+
     }
     public void Atacar()
     {
-        Debug.Log("animacao");
-        ataqueFisico.Atacando(arma.GetDano);
+        //ataqueFisico.Atacando(arma.GetDano);
     }
+    public void MorrerA()
+    {
+        morto = true;
+        IA_enemy.Morrer();
+    }
+
 
 }

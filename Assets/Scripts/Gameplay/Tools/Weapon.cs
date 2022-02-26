@@ -13,6 +13,11 @@ public class Weapon : MonoBehaviour
         canAttack = !canAttack;
         alreadyHit = false;
     }
+    public void ToggleAttackOff()
+    {
+        canAttack = false;
+        alreadyHit = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(canAttack && !alreadyHit)
@@ -21,11 +26,18 @@ public class Weapon : MonoBehaviour
             {
                 if (other.TryGetComponent(out Character character))
                 {
-                    character.ReceberKnockBack(transform.root.GetComponent<ThirdPersonController>().GetDirection());
-                    character.ReceberDano(transform.root.GetComponent<Character>().Dano);
+                    if (other.GetComponent<Enemy>() != null)
+                    {
+                        character.ReceberKnockBack(transform.root.GetComponent<ThirdPersonController>().GetDirection()); //player causando dano
+                        character.ReceberDano(transform.root.GetComponent<Character>().Dano);
+                    }
+                    else
+                    {
+                        character.ReceberDano(transform.root.GetComponent<Enemy>().Dano); //inimigo causando dano
+                    }
                     alreadyHit = true;
                 }
-                Debug.Log(other.name);
+                //Debug.Log(other.name);
             }
         }
         

@@ -4,7 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class IntEvent : MonoBehaviour
+[CreateAssetMenu(menuName = "Event System/Int Event")]
+
+public class IntEvent : ScriptableObject
 {
     private readonly List<IntListener> eventListeners =
         new List<IntListener>();

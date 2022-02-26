@@ -10,9 +10,21 @@ public class IA_Enemy : MonoBehaviour
     EnemyAttackRange enemyAttackRange;
     EnemyVision enemyVision;
     GameObject objetoPlayer;
+    Animator _animator;
 
-    //
+    //Variaveis
+    private int _animIDSpeed;
+    private int _animIDGrounded;
+    private int _animIDJump;
+    private int _animIDAttack;
+    private int _animIDReaction;
+    private int _animIDFreeFall;
+    private int _animIDDying;
 
+    bool subindo;
+    bool descendo;
+
+    [SerializeField]private float _animationBlend;
 
     //Enuns
     public enum EstadoMovimentacao { Parado, IndoPlayer, RodeandoPlayer, Patrulhando }
@@ -26,6 +38,8 @@ public class IA_Enemy : MonoBehaviour
         objetoPlayer = _player;
         enemy = _enemy;
 
+        AssignAnimationIDs();
+        _animator = GetComponent<Animator>();
         enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
         enemyVision = GetComponentInChildren<EnemyVision>();
     }
@@ -34,15 +48,18 @@ public class IA_Enemy : MonoBehaviour
         StateMachineDecisao();
         StateMachineAcao();
     }
+    public void Morrer()
+    {
+        Parar();
+        
+        Debug.Log("Toque morrer");
+        _animator.SetBool(_animIDDying, true);
+    }
     void StateMachineDecisao()
     {
-        DecisaoMovimento();
         DecisaoAcoes();
     }
-    void DecisaoMovimento()
-    {
 
-    }
     void DecisaoAcoes()
     {
         if(enemyVision.GetPlayerVision)
@@ -103,7 +120,7 @@ public class IA_Enemy : MonoBehaviour
         }
         else
         {
-            enemyMovement.Mover(enemyMovement.GetListaPatrulha[enemyMovement.GetIndiceListaPatrulha].position);
+            Mover(enemyMovement.GetListaPatrulha[enemyMovement.GetIndiceListaPatrulha].position);
         }
     }
     void RodearPlayer()
@@ -118,7 +135,7 @@ public class IA_Enemy : MonoBehaviour
     {
         if (!ChegouNaDistancia(objetoPlayer.transform.position))
         {
-            enemyMovement.Mover(objetoPlayer.transform.position);
+            Mover(objetoPlayer.transform.position);
         }
         else
         {
@@ -128,14 +145,59 @@ public class IA_Enemy : MonoBehaviour
     }
     void Atacar()
     {
+        _animator.SetBool(_animIDAttack, true);
         enemy.Atacar();
     }
-    bool ChegouNaDistancia(Vector3 _target)
+    void Mover(Vector3 _target)
+    {
+        SomarNumero();
+        _animator.SetFloat(_animIDSpeed, _animationBlend);
+        enemyMovement.Mover(_target);
+
+    }
+    void SomarNumero()
+    {
+        if(subindo)
+        {
+            _animationBlend += 0.1F;
+        }
+        if(descendo)
+        {
+            _animationBlend -= 0.1F;
+
+        }
+
+        if (_animationBlend >= 6)
+        {
+            subindo = false;
+            descendo = true;
+        }
+        if(_animationBlend <= 0)
+        {
+            subindo = true;
+            descendo = false;
+        }
+
+        
+    }
+        bool ChegouNaDistancia(Vector3 _target)
     {
         if (Vector3.Distance(transform.position, _target) < 1)
         {
             return true;
         }
         return false;
+    }
+
+
+    private void AssignAnimationIDs()
+    {
+        _animIDSpeed = Animator.StringToHash("Speed");
+        _animIDGrounded = Animator.StringToHash("Grounded");
+        _animIDJump = Animator.StringToHash("Jump");
+        _animIDFreeFall = Animator.StringToHash("FreeFall");
+        _animIDAttack = Animator.StringToHash("Attacking");
+        _animIDReaction = Animator.StringToHash("Reaction");
+        _animIDDying = Animator.StringToHash("Dying");
     }
 }
