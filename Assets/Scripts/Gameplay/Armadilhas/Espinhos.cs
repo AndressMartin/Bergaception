@@ -9,6 +9,7 @@ public class Espinhos : MonoBehaviour
 
     private bool ativo;
     private float tempo;
+    [SerializeField] private int dano;
     [SerializeField] private float tempoAtivo;
 
     private void Start()
@@ -60,5 +61,13 @@ public class Espinhos : MonoBehaviour
         }
 
         animator.Play("Descer");
+    }
+
+    private void OnTriggerEnter(Collider colisao)
+    {
+        if (colisao.CompareTag("Player") || colisao.CompareTag("Enemy"))
+        {
+            colisao.GetComponent<Character>().ReceberDano(dano);
+        }
     }
 }

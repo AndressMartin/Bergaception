@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 4012456305855730828}
   m_Layer: 0
   m_Name: Enemy_Gigante
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1281,6 +1281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49146c0ebfc20b041af3f48ed1d10b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parar: 0
   _animationBlend: 0
   estadoMovimentacao: 1
   estadoAcoes: 0
