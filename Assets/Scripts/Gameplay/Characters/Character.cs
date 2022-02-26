@@ -1,3 +1,4 @@
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -74,8 +75,8 @@ public class Character : MonoBehaviour
     }
     public virtual void Morrer()
     {
-        Debug.Log("objeto " + gameObject.name + "morto " + morto);
         GetComponent<Enemy>()?.MorrerA();
+        ToggleWeaponCollideOff();
     }
     public virtual bool ReceberDano(int dano)
     {
@@ -88,9 +89,15 @@ public class Character : MonoBehaviour
                 Morrer();
 
             }
+            teste();
             recebeuDano?.Invoke();
+            ToggleWeaponCollideOff();
         }
         return morto;
+    }
+    public virtual void teste()
+    {
+        GetComponent<ThirdPersonController>()?.AllBoolFalse();
     }
 
     public virtual void ReceberKnockBack(Vector3 directionOfKnockback)
