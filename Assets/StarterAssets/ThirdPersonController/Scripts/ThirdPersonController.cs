@@ -142,9 +142,9 @@ namespace StarterAssets
 
         private void Update()
 		{
-			
-			JumpOrDash();
+
 			GroundedCheck();
+			JumpOrDash();
 			Move();
 			Attack();
 			//Throw();
