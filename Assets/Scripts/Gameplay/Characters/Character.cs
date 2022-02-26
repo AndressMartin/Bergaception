@@ -10,7 +10,7 @@ public class Character : MonoBehaviour
     public bool morto;
     private int velocidade;
     private CharacterSO stats;
-    private Animator animator;
+    protected Animator animator;
     public UnityAction recebeuDano;
     public Weapon weapon;
     private Interacao interacao;
