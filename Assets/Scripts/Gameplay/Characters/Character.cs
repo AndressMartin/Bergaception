@@ -18,6 +18,8 @@ public class Character : MonoBehaviour
     public CharacterSO script;
     public virtual int Dano => dano;
     public int Vida => vida;
+    public ItemColetavel Item => item;
+
     private void Awake()
     {
         if (GetComponent<BasicRigidBodyPush>() != null)
@@ -42,7 +44,6 @@ public class Character : MonoBehaviour
                     animator.runtimeAnimatorController = stats.animatorOverride;
             }
         }
-
     }
     public void InteracaoItem()
     {
@@ -104,6 +105,8 @@ public class Character : MonoBehaviour
             item.Dropar();
             item = null;
         }
+
+        Debug.Log("Dropei o item");
     }
 
     public void PegueiItenChao(ItemColetavel _item)

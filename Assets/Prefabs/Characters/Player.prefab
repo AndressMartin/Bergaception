@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!65 &9175857304857021859
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628316214762617460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16336094, y: 1.0149269, z: 0.05615301}
+  m_Center: {x: -0.0000000615145, y: 0.12731048, z: 0.007633707}
+--- !u!65 &9175857304857021862
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5628316214762617460}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.16336094, y: 0.17696083, z: 0.28388673}
+  m_Center: {x: 0.00000055737166, y: 0.5338488, z: 0.121500984}
 --- !u!114 &9175857303795767391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,8 +161,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vida: 20
   vidaMax: 20
+  dano: 0
+  morto: 0
   weapon: {fileID: 9175857303795767391}
   item: {fileID: 0}
+  script: {fileID: 0}
 --- !u!114 &9175857304246414080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,32 +381,6 @@ Transform:
   m_Father: {fileID: 9175857304246414108}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9175857304857021859
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5628316214762617460}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16336094, y: 1.0149269, z: 0.05615301}
-  m_Center: {x: -0.0000000615145, y: 0.12731048, z: 0.007633707}
---- !u!65 &9175857304857021862
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5628316214762617460}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.16336094, y: 0.17696083, z: 0.28388673}
-  m_Center: {x: 0.00000055737166, y: 0.5338488, z: 0.121500984}
 --- !u!1 &9175857304976558219
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   consumivel: 0
-  quantidadeUsos: 0
+  quantidadeUsos: 3
 --- !u!114 &4240496128125713748
 MonoBehaviour:
   m_ObjectHideFlags: 0

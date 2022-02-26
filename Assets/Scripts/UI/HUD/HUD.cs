@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class HUD : MonoBehaviour
 {
+    [SerializeField] private Camera cam;
+
+    [SerializeField] private RectTransform iconeInteracao;
+
     [SerializeField] private RectTransform[] coracoes;
     [SerializeField] private GameObject[] armas;
     [SerializeField] private GameObject[] itens;
@@ -51,5 +55,17 @@ public class HUD : MonoBehaviour
                 itens[i].SetActive(false);
             }
         }
+    }
+
+    public void AtualizarIconeInteracao(bool ativo, Vector3 posicao)
+    {
+        iconeInteracao.gameObject.SetActive(ativo);
+
+        if (ativo == false)
+        {
+            return;
+        }
+
+        iconeInteracao.position = cam.WorldToScreenPoint(posicao);
     }
 }
