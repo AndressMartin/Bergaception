@@ -279,7 +279,7 @@ Transform:
   m_Children:
   - {fileID: 1643294650}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641053773
 GameObject:
@@ -976,7 +976,7 @@ Transform:
   m_Children:
   - {fileID: 1446653769}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032312378
 GameObject:
@@ -990,13 +990,14 @@ GameObject:
   - component: {fileID: 2032312382}
   - component: {fileID: 2032312381}
   - component: {fileID: 2032312380}
+  - component: {fileID: 2032312383}
   m_Layer: 0
   m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2032312379
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1087,7 +1088,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398900419bfd2e647b2266f8b60bac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 11400000, guid: d7dc9d054342e1846acff3eadcad19a9, type: 2}
+  dialog: {fileID: 11400000, guid: 88e6f4ae81a01f2478da225d1224c2e9, type: 2}
   text: {fileID: 1807360394}
   time: 0
   waitingForEvent: 0
+--- !u!114 &2032312383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032312378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5477a6fd5f2a14da4864fe6be83662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadeDoTexto: 8
