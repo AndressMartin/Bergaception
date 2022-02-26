@@ -4750,7 +4750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df460e09581ac3645a468ddc8e9a1d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinematicOn: 1
+  cinematicOn: 0
   skipCinematic: {fileID: 11400000, guid: 6b5a44226042c2745ac6171813b7a2a2, type: 2}
   startCinematic: {fileID: 11400000, guid: cc1af002f8b85124a8c0091c9339a11b, type: 2}
 --- !u!114 &268648727
