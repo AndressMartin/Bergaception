@@ -11,6 +11,7 @@ public class Mestre : Singleton<Mestre>
     [SerializeField] private VoidEvent puloDesabilitado;
     [SerializeField] private VoidEvent ataqueDesabilitado;
 
+    [SerializeField] private VoidEvent efeitosDesativados;
     [SerializeField] private VoidEvent naoCausarDano;
     [SerializeField] private VoidEvent lentidao;
     [SerializeField] private VoidEvent semAr;
@@ -82,6 +83,11 @@ public class Mestre : Singleton<Mestre>
                 superInimigos.Raise();
                 break;
         }
+    }
+
+    public void DesligarEfeitos()
+    {
+        efeitosDesativados.Raise();
     }
 
     public void CriarEfeitoAleatorio(Efeito[] efeitos)
