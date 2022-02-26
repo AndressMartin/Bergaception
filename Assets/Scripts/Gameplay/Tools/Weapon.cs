@@ -20,24 +20,27 @@ public class Weapon : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("chamando");
         if(canAttack && !alreadyHit)
         {
             if (other.transform != transform.root)
             {
                 if (other.TryGetComponent(out Character character))
                 {
-                    if (other.GetComponent<Enemy>() != null)
+                    if (!character.morto)
                     {
-                        character.ReceberKnockBack(transform.root.GetComponent<ThirdPersonController>().GetDirection()); //player causando dano
-                        character.ReceberDano(transform.root.GetComponent<Character>().Dano);
+                        if (other.GetComponent<Enemy>() != null)
+                        {
+                            character.ReceberKnockBack(transform.root.GetComponent<ThirdPersonController>().GetDirection()); //player causando dano
+                            character.ReceberDano(transform.root.GetComponent<Character>().Dano);
+                        }
+                        else
+                        {
+                            character.ReceberDano(transform.root.GetComponent<Enemy>().Dano); //inimigo causando dano
+                        }
+                        alreadyHit = true;
                     }
-                    else
-                    {
-                        character.ReceberDano(transform.root.GetComponent<Enemy>().Dano); //inimigo causando dano
-                    }
-                    alreadyHit = true;
                 }
-                //Debug.Log(other.name);
             }
         }
         

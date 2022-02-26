@@ -32,6 +32,10 @@ public class Enemy : Character
 
         }
     }
+    public override void teste()
+    {
+        IA_enemy.AllBoolFalse();
+    }
 
     void Start()
     {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -68,7 +69,7 @@ public class SceneController : Singleton<SceneController>
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
-            Debug.Log(progress);
+            //Debug.Log(progress);
 
             yield return null;
         }
@@ -88,6 +89,13 @@ public class SceneController : Singleton<SceneController>
     public void LoadSceneAdditiveAndSetActive(int sceneIndex)
     {
         Debug.Log("Load scene additively " + sceneIndex);
-        StartCoroutine(LoadAsynchronously(sceneIndex, LoadSceneMode.Additive, delegate { SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIndex)); }));
+        StartCoroutine(LoadAsynchronously(sceneIndex, LoadSceneMode.Additive, delegate { 
+            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIndex));
+            Lightmapping.BakeAsync();
+        }));
+    }
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

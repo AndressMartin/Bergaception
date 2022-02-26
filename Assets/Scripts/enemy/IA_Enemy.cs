@@ -52,7 +52,6 @@ public class IA_Enemy : MonoBehaviour
     {
         Parar();
         
-        Debug.Log("Toque morrer");
         _animator.SetBool(_animIDDying, true);
     }
     void StateMachineDecisao()
@@ -145,6 +144,11 @@ public class IA_Enemy : MonoBehaviour
     }
     void Atacar()
     {
+        if(!ChegouNaDistancia(objetoPlayer.transform.position))
+        {
+            transform.LookAt(objetoPlayer.transform);
+        }
+
         _animator.SetBool(_animIDAttack, true);
         enemy.Atacar();
     }
@@ -180,7 +184,7 @@ public class IA_Enemy : MonoBehaviour
 
         
     }
-        bool ChegouNaDistancia(Vector3 _target)
+    bool ChegouNaDistancia(Vector3 _target)
     {
         if (Vector3.Distance(transform.position, _target) < 0.5)
         {
@@ -199,5 +203,10 @@ public class IA_Enemy : MonoBehaviour
         _animIDAttack = Animator.StringToHash("Attacking");
         _animIDReaction = Animator.StringToHash("Reaction");
         _animIDDying = Animator.StringToHash("Dying");
+    }
+    public void AllBoolFalse()
+    {
+        _animator.SetBool(_animIDJump, false);
+        _animator.SetBool(_animIDAttack, false);
     }
 }

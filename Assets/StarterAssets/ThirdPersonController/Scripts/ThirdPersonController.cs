@@ -159,7 +159,11 @@ namespace StarterAssets
 		{
 			CameraRotation();
 		}
-
+		public void AllBoolFalse()
+        {
+			_animator.SetBool(_animIDJump, false);
+			_animator.SetBool(_animIDAttack, false);
+		}
 		private void AssignAnimationIDs()
 		{
 			_animIDSpeed = Animator.StringToHash("Speed");

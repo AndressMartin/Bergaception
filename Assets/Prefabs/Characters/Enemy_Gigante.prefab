@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4011266763626608219}
-  m_LocalRotation: {x: 0.7159985, y: -0.19407457, z: 0.18988946, w: 0.6431355}
-  m_LocalPosition: {x: -0.043754354, y: 0.0019522967, z: 0.21224196}
+  m_LocalRotation: {x: -0.31744653, y: 0.32049692, z: -0.60494274, w: 0.65616596}
+  m_LocalPosition: {x: 5.404855, y: 3.2026021, z: 4.5996685}
   m_LocalScale: {x: 121.997314, y: 121.997314, z: 121.997314}
   m_Children: []
   m_Father: {fileID: 4012456305095832212}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 95.916016, y: -12.488007, z: 19.063004}
+  m_LocalEulerAnglesHint: {x: 181.652, y: -126.38901, z: -266.18298}
 --- !u!33 &4024208305409493173
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4011266763626608219}
-  m_Mesh: {fileID: 4300000, guid: 23c05df51205de544abcfd1b6a609e78, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 08c18a17006ad9a4eb9d96fe947f2af0, type: 3}
 --- !u!23 &4034211546588118999
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fdf18c58b725a2f469593ece1786d307, type: 2}
+  - {fileID: 2100000, guid: 42b64fdb315e3054ea757d8d1c4bcfa7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: 43583295601519772, guid: cd8db66205945544d94bcde0594b3f59, type: 2}
+  m_Mesh: {fileID: 4300000, guid: 08c18a17006ad9a4eb9d96fe947f2af0, type: 3}
 --- !u!114 &4012456305999002780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4012456305095866550
 Transform:
   m_ObjectHideFlags: 0
@@ -1118,7 +1118,7 @@ Transform:
   m_GameObject: {fileID: 4012456305095918028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.86, y: 0, z: -12.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3561, y: 1.3561, z: 1.3561}
   m_Children:
   - {fileID: 4012456305095842336}
   - {fileID: 4012456305095784824}
@@ -2556,7 +2556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4012456305095832844
 Transform:
   m_ObjectHideFlags: 0
