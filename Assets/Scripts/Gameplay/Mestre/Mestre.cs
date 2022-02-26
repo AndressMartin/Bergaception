@@ -19,10 +19,11 @@ public class Mestre : Singleton<Mestre>
     [SerializeField] private VoidEvent criarEspinhos;
     [SerializeField] private VoidEvent criarInimigos;
     [SerializeField] private VoidEvent superInimigos;
+    [SerializeField] private VoidEvent turnBlack;
 
     //Enuns
     public enum ComandoJogador { Andar, Correr, Pular, Atacar };
-    public enum Efeito { NaoCausarDano, Lentidao, SemAr, SemVisao, CriarEspinhos, CriarInimigos, SuperInimigos };
+    public enum Efeito { NaoCausarDano, Lentidao, SemAr, SemVisao, CriarEspinhos, CriarInimigos, SuperInimigos, Apagao };
 
     public void HabilitarComandosJogador()
     {
@@ -81,6 +82,10 @@ public class Mestre : Singleton<Mestre>
 
             case Efeito.SuperInimigos:
                 superInimigos.Raise();
+                break;
+
+            case Efeito.Apagao:
+                turnBlack.Raise();
                 break;
         }
     }

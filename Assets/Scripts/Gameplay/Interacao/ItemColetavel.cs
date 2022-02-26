@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemColetavel : MonoBehaviour
 {
-    private Character character;
+    protected Character character;
     public bool consumivel;
     public int quantidadeUsos;
     private void Start()
@@ -29,7 +29,7 @@ public class ItemColetavel : MonoBehaviour
             }
         }
     }
-    public void Dropar()
+    public virtual void Dropar()
     {
         Debug.Log("soltar item");
         gameObject.SetActive(true);

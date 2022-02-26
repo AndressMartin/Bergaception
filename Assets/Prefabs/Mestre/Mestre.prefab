@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 864137929335626467}
+  - component: {fileID: 786228871501351418}
   - component: {fileID: 2324684348591663267}
   m_Layer: 0
   m_Name: Mestre
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &786228871501351418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8563956501821386132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb75d0143ec16bb4f9d3c98524d30b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2324684348591663267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,3 +69,4 @@ MonoBehaviour:
   criarEspinhos: {fileID: 11400000, guid: fe9d2078e6b28dd4f8b85d2aa053dcd3, type: 2}
   criarInimigos: {fileID: 11400000, guid: 1afb0a98e6d9af844b7108d98253ff76, type: 2}
   superInimigos: {fileID: 11400000, guid: 08468d3b41a29ab4ab006ba699d45e25, type: 2}
+  turnBlack: {fileID: 11400000, guid: a26e58cf8e8b7784e94766669150ffad, type: 2}
