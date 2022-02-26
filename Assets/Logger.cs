@@ -12,7 +12,9 @@ public class Logger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+#if UNITY_EDITOR
         StartCoroutine(GetEvents());
+#endif
     }
 
     // Update is called once per frame
@@ -25,7 +27,7 @@ public class Logger : MonoBehaviour
     {
         Debug.Log("Test");
     }
-
+#if UNITY_EDITOR
     public IEnumerator GetEvents()
     {
         yield return new WaitForSeconds(1);
@@ -49,6 +51,7 @@ public class Logger : MonoBehaviour
         }
         Debug.Log("Events list was successfully saved.");
     }
+#endif
 }
 
 [Serializable]
