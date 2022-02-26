@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665f1dbb9d20b9a4e84a6b657c5e21fc, type: 3}
   m_Name: Player Test
   m_EditorClassIdentifier: 
-  vidaMax: 550
+  vidaMax: 3
   dano: 0
   velocidade: 10
   animatorOverride: {fileID: 0}

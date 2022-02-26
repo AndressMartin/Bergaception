@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f2407bebcbedc4582c8e2904db4c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 20
-  vidaMax: 20
+  vida: 3
+  vidaMax: 3
   dano: 0
   morto: 0
   weapon: {fileID: 9175857303795767391}

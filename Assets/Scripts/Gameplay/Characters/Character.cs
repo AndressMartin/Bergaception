@@ -16,6 +16,8 @@ public class Character : MonoBehaviour
     public Weapon weapon;
     private Interacao interacao;
 
+    private bool personagem = false;
+
     private HUD hud;
 
     [SerializeField] private ItemColetavel item;
@@ -57,6 +59,8 @@ public class Character : MonoBehaviour
                 if (animator.runtimeAnimatorController)
                     animator.runtimeAnimatorController = stats.animatorOverride;
             }
+
+            personagem = true;
         }
     }
     public void InteracaoItem()
@@ -87,11 +91,16 @@ public class Character : MonoBehaviour
         if (!morto)
         {
             vida -= dano;
-            if (vida <= 0)
+
+            if (personagem == true)
+            {
+                hud.AtualizarHP(vida);
+            }
+
+                if (vida <= 0)
             {
                 morto = true;
                 Morrer();
-
             }
             teste();
             recebeuDano?.Invoke();
@@ -124,7 +133,11 @@ public class Character : MonoBehaviour
         {
             item.Dropar();
             item = null;
-            hud.TrocarIconeItem(0);
+
+            if(personagem == true)
+            {
+                hud.TrocarIconeItem(0);
+            }
         }
 
         Debug.Log("Dropei o item");

@@ -518,6 +518,14 @@ PrefabInstance:
       propertyPath: itens.Array.data[1]
       value: 
       objectReference: {fileID: 8754185208500214950}
+    - target: {fileID: 2070016318484339727, guid: 85f12f8b3b1affc4eb47a358886b149c, type: 3}
+      propertyPath: coracoes.Array.data[1]
+      value: 
+      objectReference: {fileID: 863487353977202195}
+    - target: {fileID: 2070016318484339727, guid: 85f12f8b3b1affc4eb47a358886b149c, type: 3}
+      propertyPath: coracoes.Array.data[2]
+      value: 
+      objectReference: {fileID: 3612148058785973470}
     - target: {fileID: 2495154180369285093, guid: 85f12f8b3b1affc4eb47a358886b149c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -631,6 +639,16 @@ PrefabInstance:
 --- !u!224 &2034071701995820592 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2495154180369285093, guid: 85f12f8b3b1affc4eb47a358886b149c, type: 3}
+  m_PrefabInstance: {fileID: 4511174086900017621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &863487353977202195 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3846445450958016454, guid: 85f12f8b3b1affc4eb47a358886b149c, type: 3}
+  m_PrefabInstance: {fileID: 4511174086900017621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3612148058785973470 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 917051434624707851, guid: 85f12f8b3b1affc4eb47a358886b149c, type: 3}
   m_PrefabInstance: {fileID: 4511174086900017621}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &4459685099404818709 stripped
