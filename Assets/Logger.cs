@@ -29,7 +29,7 @@ public class Logger : MonoBehaviour
     public IEnumerator GetEvents()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("GetEvent");
+        Debug.Log("Getting the list of all events...");
         var assets = AssetDatabase.FindAssets("t:VoidEvent", new[] { "Assets/Event System/Events/Void" });
         eventsAndListeners = new List<EventsAndListeners>(new EventsAndListeners[assets.Length]);
 
@@ -47,6 +47,7 @@ public class Logger : MonoBehaviour
                 eventsAndListeners[i].listeners.Add(listener);
             }
         }
+        Debug.Log("Events list was successfully saved.");
     }
 }
 

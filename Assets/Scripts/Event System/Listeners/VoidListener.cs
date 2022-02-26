@@ -11,6 +11,7 @@ public class VoidListener : MonoBehaviour
     [Tooltip("Response to invoke when Event is raised.")]
     public UnityEvent Response;
 
+    public float time;
     private void OnEnable()
     {
         Event.RegisterListener(this);
@@ -23,6 +24,25 @@ public class VoidListener : MonoBehaviour
 
     public void OnEventRaised()
     {
+        if(time > 0)
+        {
+            StartCoroutine(InvokeTimed());
+        }
+        else
+        {
+            Debug.Log($"{Event.name } was raised by {Response.GetPersistentMethodName(0)}");
+            Response.Invoke();
+        }
+        
+    }
+
+    private IEnumerator InvokeTimed()
+    {
+        while (time > 0)
+        {
+            time -= Time.deltaTime;
+            yield return null;
+        }
         Debug.Log($"{Event.name } was raised by {Response.GetPersistentMethodName(0)}");
         Response.Invoke();
     }

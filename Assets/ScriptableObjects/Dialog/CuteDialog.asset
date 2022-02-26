@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce61bfb2413d5f94a820c9e082dd9e43, type: 3}
-  m_Name: CutevilleDialog
+  m_Name: CuteDialog
   m_EditorClassIdentifier: 
   dialogRaised:
     m_PersistentCalls:
@@ -28,19 +28,47 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _textList:
-  - text: "\xD3 teu pai ali, [w] aquele corno [w]."
-    timeToWait: 3
+  - text: 
+    timeToWait: 1
     type: 1
     eventToWaitFor: {fileID: 0}
-  - text: "\xD3 teu pai ali, "
-    timeToWait: 3
+  - text: 'Aaaah, '
+    timeToWait: 1.5
     type: 1
     eventToWaitFor: {fileID: 0}
-  - text: '[w] aquele corno [w].'
-    timeToWait: 3
+  - text: 'it''s a beautiful '
+    timeToWait: 1.1
     type: 0
-    eventToWaitFor: {fileID: 11400000, guid: 66cd9e25ba079d049a70a5af421d3105, type: 2}
-  - text: '[w] Deu certo o evento! [w]'
+    eventToWaitFor: {fileID: 0}
+  - text: 'day '
+    timeToWait: 0.7
+    type: 0
+    eventToWaitFor: {fileID: 0}
+  - text: outside...
+    timeToWait: 1.5
+    type: 1
+    eventToWaitFor: {fileID: 0}
+  - text: 'birds are singing, '
+    timeToWait: 1.6
+    type: 1
+    eventToWaitFor: {fileID: 0}
+  - text: 'flowers are blooming, '
+    timeToWait: 1.8
+    type: 1
+    eventToWaitFor: {fileID: 0}
+  - text: on days like these...
+    timeToWait: 3.4
+    type: 1
+    eventToWaitFor: {fileID: 0}
+  - text: We should be
     timeToWait: 3
+    type: 1
+    eventToWaitFor: {fileID: 0}
+  - text: grabbing some apples from trees!
+    timeToWait: 4
+    type: 1
+    eventToWaitFor: {fileID: 0}
+  - text: let's go!
+    timeToWait: 2
     type: 1
     eventToWaitFor: {fileID: 0}

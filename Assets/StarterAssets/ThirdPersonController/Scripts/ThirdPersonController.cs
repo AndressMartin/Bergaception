@@ -131,7 +131,9 @@ namespace StarterAssets
             _input.throwPerformed.AddListener(ThrowPerformed);
 			_input.throwCanceled.AddListener(ThrowCanceled);
 
-            AssignAnimationIDs();
+			_hasAnimator = TryGetComponent(out _animator);
+
+			AssignAnimationIDs();
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
@@ -140,10 +142,9 @@ namespace StarterAssets
 
         private void Update()
 		{
-			_hasAnimator = TryGetComponent(out _animator);
-			
-			JumpOrDash();
+
 			GroundedCheck();
+			JumpOrDash();
 			Move();
 			Attack();
 			//Throw();
@@ -228,7 +229,6 @@ namespace StarterAssets
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Use") ||
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Dying"))
 			{
-				//Debug.Log("Speed is 0");
 				targetSpeed = 0.0f;
 			}
 

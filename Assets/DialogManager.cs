@@ -16,8 +16,6 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     private float time;
     [SerializeField]
-    private VoidEvent playGame;
-    [SerializeField]
     private bool waitingForEvent = false;
     private bool playing = false;
 
@@ -83,6 +81,15 @@ public class DialogManager : MonoBehaviour
 
                 maxTime = dialog._textList[part].timeToWait;
                 time = maxTime;
+            }
+            yield return null;
+        }
+        while(part +1 >= dialog._textList.Count)
+        {
+            time -= Time.deltaTime;
+            if (time <= 0)
+            {
+                gameObject.SetActive(false);
             }
             yield return null;
         }
