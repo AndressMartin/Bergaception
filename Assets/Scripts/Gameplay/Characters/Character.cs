@@ -10,11 +10,13 @@ public class Character : MonoBehaviour
     public bool morto;
     private int velocidade;
     private CharacterSO stats;
-    private Animator animator;
+    protected Animator animator;
     public UnityAction recebeuDano;
     public Weapon weapon;
+    private Interacao interacao;
 
-    [SerializeField] public ItemColetavel item;
+    [SerializeField] private ItemColetavel item;
+
     public CharacterSO script;
     public virtual int Dano => dano;
     public int Vida => vida;
@@ -27,6 +29,13 @@ public class Character : MonoBehaviour
             Init(script);
         }
     }
+
+    private void Start()
+    {
+        item = null;
+        interacao = GetComponentInChildren<Interacao>();
+    }
+
     public virtual void Init(CharacterSO stats)
     {
         if (GetComponent<BasicRigidBodyPush>() != null)
@@ -49,7 +58,7 @@ public class Character : MonoBehaviour
     {
         if (item == null)   //pegar Item
         {
-            FindObjectOfType<Interacao>().Interagir();
+            interacao.Interagir();
         }
         else if (item != null) //Usar item
         {
@@ -89,10 +98,7 @@ public class Character : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(directionOfKnockback, Vector3.up);
         transform.rotation = Quaternion.Inverse(rotation);
     }
-    private void Update()
-    {
-        Debug.Log("tenho item " + item);
-    }
+
     public void ToggleWeaponCollide()
     {
         weapon?.ToggleAttack();

@@ -21,7 +21,16 @@ public class Enemy : Character
         vida = vidaMax;
         dano = _stats.GetArma.GetDano;
 
+        animator = GetComponent<Animator>();
+        if (stats.animatorOverride)
+        {
+            if (animator.runtimeAnimatorController)
+            {
+                Debug.Log("subistituindo "+ stats.animatorOverride);
+                animator.runtimeAnimatorController = stats.animatorOverride;
+            }
 
+        }
     }
 
     void Start()
@@ -31,7 +40,7 @@ public class Enemy : Character
         IA_enemy = GetComponent<IA_Enemy>();
         aiPath = GetComponent<AIPath>();
         
-        player = FindObjectOfType<Character>().gameObject;
+        player = FindObjectOfType<BasicRigidBodyPush>().gameObject;
 
         enemyMovement.ReceberScriptObject((EnemyScriptObject)script);
         enemyMovement.Inicar(this.gameObject,aiPath);
