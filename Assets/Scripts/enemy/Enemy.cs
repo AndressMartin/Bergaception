@@ -20,6 +20,8 @@ public class Enemy : Character
         vidaMax = _stats.GetVidaMax;
         vida = vidaMax;
         dano = _stats.GetArma.GetDano;
+
+
     }
 
     void Start()

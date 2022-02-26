@@ -14,10 +14,12 @@ public class Character : MonoBehaviour
     public UnityAction recebeuDano;
     public Weapon weapon;
 
-    [SerializeField] private ItemColetavel item;
+    [SerializeField] public ItemColetavel item;
     public CharacterSO script;
     public virtual int Dano => dano;
     public int Vida => vida;
+    public ItemColetavel Item => item;
+
     private void Awake()
     {
         if (GetComponent<BasicRigidBodyPush>() != null)
@@ -42,7 +44,6 @@ public class Character : MonoBehaviour
                     animator.runtimeAnimatorController = stats.animatorOverride;
             }
         }
-
     }
     public void InteracaoItem()
     {
@@ -88,7 +89,10 @@ public class Character : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(directionOfKnockback, Vector3.up);
         transform.rotation = Quaternion.Inverse(rotation);
     }
-
+    private void Update()
+    {
+        Debug.Log("tenho item " + item);
+    }
     public void ToggleWeaponCollide()
     {
         weapon?.ToggleAttack();
@@ -104,10 +108,13 @@ public class Character : MonoBehaviour
             item.Dropar();
             item = null;
         }
+
+        Debug.Log("Dropei o item");
     }
 
     public void PegueiItenChao(ItemColetavel _item)
     {
+        Debug.Log("iten recebido "+_item);
         item = _item;
     }
     public void UsarItem()

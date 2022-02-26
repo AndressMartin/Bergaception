@@ -19,7 +19,6 @@ public class DebugMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Keyboard.current[Key.K].wasPressedThisFrame && apertou == false)
         {
             apertou = true;

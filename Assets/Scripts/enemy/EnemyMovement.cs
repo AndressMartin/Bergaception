@@ -27,6 +27,12 @@ public class EnemyMovement : MonoBehaviour
         aiPath = _aIPath;
         VerificarPontoMaisPertoRota();
         RotaIdaVolta();
+        Debug.Log("quantidade" + targetsPatrulha.Count);
+        if(targetsPatrulha.Count <= 0 )
+        {
+            Debug.Log("entrando");
+            targetsPatrulha.Add(transform);
+        }
     }
     public void ReceberScriptObject(EnemyScriptObject _enemyScriptObject)
     {

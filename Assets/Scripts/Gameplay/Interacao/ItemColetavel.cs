@@ -15,7 +15,6 @@ public class ItemColetavel : MonoBehaviour
     {
         character.PegueiItenChao(this);
         gameObject.SetActive(false);
-        Debug.Log("peguei item");
     }
     public virtual void UsarItem()
     {
