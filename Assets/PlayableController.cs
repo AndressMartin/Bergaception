@@ -10,7 +10,12 @@ public class PlayableController : MonoBehaviour
     public VoidEvent startCinematic;
     public void StartCinematicOrNot()
     {
+#if UNITY_EDITOR
         if (cinematicOn) startCinematic.Raise();
         else skipCinematic.Raise();
+#endif
+#if !UNITY_EDITOR
+        startCinematic.Raise();
+#endif
     }
 }
