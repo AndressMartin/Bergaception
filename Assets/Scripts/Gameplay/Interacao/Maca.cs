@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Maca : ItemColetavel
 {
+    protected override int Id => 1;
+
     [SerializeField] private IntEvent eventoContador;
 
     public void SeAtivar()
@@ -21,6 +23,7 @@ public class Maca : ItemColetavel
     {
         character.PegueiItenChao(this);
         gameObject.SetActive(false);
+        character.Hud.TrocarIconeItem(Id);
 
         eventoContador.Raise(1);
     }

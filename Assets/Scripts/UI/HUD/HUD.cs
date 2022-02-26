@@ -12,6 +12,12 @@ public class HUD : MonoBehaviour
     [SerializeField] private GameObject[] armas;
     [SerializeField] private GameObject[] itens;
 
+    private void Start()
+    {
+        TrocarIconeArma(1);
+        TrocarIconeItem(0);
+    }
+
     public void AtualizarHP(int hp)
     {
         for (int i = 0; i < coracoes.Length; i++)

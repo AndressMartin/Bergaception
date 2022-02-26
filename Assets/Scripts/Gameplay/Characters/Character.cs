@@ -16,12 +16,15 @@ public class Character : MonoBehaviour
     public Weapon weapon;
     private Interacao interacao;
 
+    private HUD hud;
+
     [SerializeField] private ItemColetavel item;
 
     public CharacterSO script;
     public virtual int Dano => dano;
     public int Vida => vida;
     public ItemColetavel Item => item;
+    public HUD Hud => hud;
 
     private void Awake()
     {
@@ -35,6 +38,7 @@ public class Character : MonoBehaviour
     {
         item = null;
         interacao = GetComponentInChildren<Interacao>();
+        hud = FindObjectOfType<HUD>();
     }
 
     public virtual void Init(CharacterSO stats)
@@ -120,6 +124,7 @@ public class Character : MonoBehaviour
         {
             item.Dropar();
             item = null;
+            hud.TrocarIconeItem(0);
         }
 
         Debug.Log("Dropei o item");

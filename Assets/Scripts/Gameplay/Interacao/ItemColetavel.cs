@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemColetavel : MonoBehaviour
 {
+    protected virtual int Id => 0;
+
     protected Character character;
     public bool consumivel;
     public int quantidadeUsos;
@@ -15,6 +17,7 @@ public class ItemColetavel : MonoBehaviour
     {
         character.PegueiItenChao(this);
         gameObject.SetActive(false);
+        character.Hud.TrocarIconeItem(Id);
     }
     public virtual void UsarItem()
     {
@@ -26,6 +29,7 @@ public class ItemColetavel : MonoBehaviour
             if (quantidadeUsos <= 0)
             {
                 character.PegueiItenChao(null);//perder referencia
+                character.Hud.TrocarIconeItem(0);
             }
         }
     }
