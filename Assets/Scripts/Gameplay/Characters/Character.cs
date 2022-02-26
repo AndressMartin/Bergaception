@@ -1,15 +1,13 @@
-using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField]
-    private int vida;
-    [SerializeField]
-    private int vidaMax;
-    private int dano;
+    public int vida;
+    public int vidaMax;
+
+    public int dano;
+    public bool morto;
     private int velocidade;
     private CharacterSO stats;
     private Animator animator;
@@ -17,21 +15,34 @@ public class Character : MonoBehaviour
     public Weapon weapon;
 
     [SerializeField] private ItemColetavel item;
-
-    public int Dano => dano;
+    public CharacterSO script;
+    public virtual int Dano => dano;
     public int Vida => vida;
     private void Awake()
     {
-        
+        if (GetComponent<BasicRigidBodyPush>() != null)
+        {
+            Init(script);
+        }
     }
-    public void Init(CharacterSO stats) 
+    public virtual void Init(CharacterSO stats)
     {
-        vidaMax = stats.vidaMax;
-        vida = vidaMax;
-        dano = stats.dano;
-        animator = GetComponent<Animator>();
-        if (animator.runtimeAnimatorController)
-            animator.runtimeAnimatorController = stats.animatorOverride;
+        if (GetComponent<BasicRigidBodyPush>() != null)
+        {
+            PlayerScriptObject _stats = (PlayerScriptObject)stats;
+
+            vidaMax = _stats.GetVidaMax;
+            vida = vidaMax;
+            dano = _stats.GetArma.GetDano;
+
+            if (animator != null)
+            {
+                animator = GetComponent<Animator>();
+                if (animator.runtimeAnimatorController)
+                    animator.runtimeAnimatorController = stats.animatorOverride;
+            }
+        }
+
     }
     public void InteracaoItem()
     {
@@ -40,23 +51,36 @@ public class Character : MonoBehaviour
             FindObjectOfType<Interacao>().Interagir();
         }
         else if (item != null) //Usar item
-        {     
+        {
             UsarItem();
         }
     }
     public void SoltarItem()
     {
         if (item != null)
-        {     
-            DroparItem();   
+        {
+            DroparItem();
         }
     }
-
+    public virtual void Morrer()
+    {
+        Debug.Log("objeto " + gameObject.name + "morto " + morto);
+        GetComponent<Enemy>()?.MorrerA();
+    }
     public virtual bool ReceberDano(int dano)
     {
-        vida -= dano;
-        recebeuDano?.Invoke();
-        return true;
+        if (!morto)
+        {
+            vida -= dano;
+            if (vida <= 0)
+            {
+                morto = true;
+                Morrer();
+
+            }
+            recebeuDano?.Invoke();
+        }
+        return morto;
     }
 
     public virtual void ReceberKnockBack(Vector3 directionOfKnockback)
@@ -67,7 +91,11 @@ public class Character : MonoBehaviour
 
     public void ToggleWeaponCollide()
     {
-        weapon.ToggleAttack();
+        weapon?.ToggleAttack();
+    }
+    public void ToggleWeaponCollideOff()
+    {
+        weapon?.ToggleAttackOff();
     }
     public void DroparItem()
     {
@@ -84,7 +112,7 @@ public class Character : MonoBehaviour
     }
     public void UsarItem()
     {
-        item?.UsarItem();   
+        item?.UsarItem();
     }
 
     public bool TemItem()

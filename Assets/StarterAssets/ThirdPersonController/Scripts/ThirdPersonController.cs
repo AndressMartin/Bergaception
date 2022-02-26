@@ -228,7 +228,7 @@ namespace StarterAssets
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Use") ||
 				_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Dying"))
 			{
-				Debug.Log("Speed is 0");
+				//Debug.Log("Speed is 0");
 				targetSpeed = 0.0f;
 			}
 

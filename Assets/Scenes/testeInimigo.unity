@@ -1636,16 +1636,6 @@ MonoBehaviour:
   teclaK: 0
   interact: 0
   dropItem: 0
-  throwActionReference: {fileID: 0}
-  throwStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  throwPerformed:
-    m_PersistentCalls:
-      m_Calls: []
-  throwCanceled:
-    m_PersistentCalls:
-      m_Calls: []
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1787,7 +1777,7 @@ PrefabInstance:
     - target: {fileID: 3428601544052328064, guid: b1bbd7d972a2fee46b7682286186a8c5, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4416926083347132227}
     - target: {fileID: 3428601544052328065, guid: b1bbd7d972a2fee46b7682286186a8c5, type: 3}
       propertyPath: targetsPatrulha.Array.data[0]
       value: 
@@ -2012,8 +2002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f2407bebcbedc4582c8e2904db4c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
-  vidaMax: 0
+  vida: 4
+  vidaMax: 4
   weapon: {fileID: 0}
   item: {fileID: 0}
 --- !u!114 &4416926083347132232
@@ -2048,7 +2038,6 @@ MonoBehaviour:
   CameraAngleOverride: 0
   LockCameraPosition: 0
   itemToThrow: {fileID: 0}
-  projection: {fileID: 0}
   ShotPoint: {fileID: 0}
   blastPower: 0
 --- !u!143 &4416926083347132233

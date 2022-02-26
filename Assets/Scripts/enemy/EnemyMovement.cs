@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     //variaveis
 
-    private float velocidade;
+    [SerializeField]private float velocidade;
     [SerializeField] private List<Transform> targetsPatrulha = new List<Transform>();
 
     //variavelControle
