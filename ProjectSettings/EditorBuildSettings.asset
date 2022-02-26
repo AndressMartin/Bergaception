@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gameplay.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/Vila Fofa.unity
+    guid: ac9ab3530333dde4a8c4d5e15aed8256
   - enabled: 1
     path: "Assets/Scenes/\xC1rea 1.unity"
     guid: 2780002661d46364e87c1edd03ed3822
