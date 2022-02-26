@@ -69,9 +69,7 @@ public class TextAnimator : MonoBehaviour
         text.enabled = true;
         originalText = text.text;
         symbol = text.text.IndexOf("[w] ");
-        Debug.Log(symbol);
         lastSymbol = text.text.LastIndexOf(" [w]");
-        Debug.Log(lastSymbol);
         var nextText = text.text.Remove(symbol, 4);
         nextText = nextText.Remove(lastSymbol - 4, 4);
         text.text = nextText;

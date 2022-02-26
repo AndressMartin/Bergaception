@@ -57,7 +57,15 @@ public class DialogManager : MonoBehaviour
                 {
                     if (dialog._textList[part].eventToWaitFor != null)
                     {
-                        dialog._textList[part].fireAtEnd.Raise();
+                        if(dialog._textList[part].fireAtEnd != null)
+                        {
+                            dialog._textList[part].fireAtEnd.Raise();
+                            Debug.Log("Fired a dialog end event!" + dialog._textList[part].fireAtEnd);
+                        }
+                        else
+                        {
+                            Debug.Log("No event found.");
+                        }
                         waitingForEvent = true;
                     }
                 }
