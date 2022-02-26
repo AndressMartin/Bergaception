@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RootMotionMovement : Character
 {
-    Animator animator;
     CharacterController cc;
     
     // Start is called before the first frame update
