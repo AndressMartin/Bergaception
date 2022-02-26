@@ -42,6 +42,7 @@ public class IA_Enemy : MonoBehaviour
         enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
         enemyVision = GetComponentInChildren<EnemyVision>();
     }
+
     public void Main()
     {
         StateMachineDecisao();
