@@ -56,7 +56,10 @@ public class DialogManager : MonoBehaviour
                 if (part != -1)
                 {
                     if (dialog._textList[part].eventToWaitFor != null)
+                    {
+                        dialog._textList[part].fireAtEnd.Raise();
                         waitingForEvent = true;
+                    }
                 }
                 while (waitingForEvent) yield return null;
                 part++;

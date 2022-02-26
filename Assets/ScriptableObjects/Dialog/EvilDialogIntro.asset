@@ -32,24 +32,30 @@ MonoBehaviour:
     timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
   - text: "Ha ha ha ha ha\u2026"
     timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 11400000, guid: c6b69b04f7ce3004f9606b26d8520214, type: 2}
   - text: 'You [w] really [w] think you were in control? '
     timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
   - text: 'That''s... '
     timeToWait: 2
     type: 1
     eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
   - text: Quite sad really.
     timeToWait: 3
     type: 0
     eventToWaitFor: {fileID: 11400000, guid: cd522bb6cf4666a498ad93d8def54e22, type: 2}
+    fireAtEnd: {fileID: 11400000, guid: ed7047b1cbb421e48a75b68b041f35ab, type: 2}
   - text: "You reaaally think I\u2019ll just let you wander around, like a fucking
       mouse?"
     timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}

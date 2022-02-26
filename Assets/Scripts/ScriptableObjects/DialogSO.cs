@@ -26,6 +26,7 @@ public class DialogLine
     public float timeToWait;
     public TextType type;
     public VoidEvent eventToWaitFor;
+    public VoidEvent fireAtEnd;
 
 }
 
