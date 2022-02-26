@@ -21,8 +21,7 @@ public class IA_Enemy : MonoBehaviour
     private int _animIDFreeFall;
     private int _animIDDying;
 
-    bool subindo;
-    bool descendo;
+    public bool parar;
 
     [SerializeField]private float _animationBlend;
 
@@ -128,6 +127,8 @@ public class IA_Enemy : MonoBehaviour
     }
     void Parar()
     {
+        _animationBlend = 0;
+        _animator.SetFloat(_animIDSpeed, _animationBlend);
         enemyMovement.Parar();
     }
     void IrAtePlayer()
@@ -154,36 +155,12 @@ public class IA_Enemy : MonoBehaviour
     }
     void Mover(Vector3 _target)
     {
-        SomarNumero();
+        _animationBlend = 1;
         _animator.SetFloat(_animIDSpeed, _animationBlend);
         enemyMovement.Mover(_target);
 
     }
-    void SomarNumero()
-    {
-        if(subindo)
-        {
-            _animationBlend += 0.1F;
-        }
-        if(descendo)
-        {
-            _animationBlend -= 0.1F;
 
-        }
-
-        if (_animationBlend >= 6)
-        {
-            subindo = false;
-            descendo = true;
-        }
-        if(_animationBlend <= 0)
-        {
-            subindo = true;
-            descendo = false;
-        }
-
-        
-    }
     bool ChegouNaDistancia(Vector3 _target)
     {
         if (Vector3.Distance(transform.position, _target) < 0.5)
