@@ -182,7 +182,7 @@ public class IA_Enemy : MonoBehaviour
     }
         bool ChegouNaDistancia(Vector3 _target)
     {
-        if (Vector3.Distance(transform.position, _target) < 1)
+        if (Vector3.Distance(transform.position, _target) < 0.5)
         {
             return true;
         }

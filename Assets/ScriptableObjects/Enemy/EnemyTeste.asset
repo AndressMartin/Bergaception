@@ -18,4 +18,4 @@ MonoBehaviour:
   animatorOverride: {fileID: 0}
   patrulhaIdaVolta: 0
   arma: {fileID: 11400000, guid: 1d822f811a0d8c54eb44055fd82fc067, type: 2}
-  animatorOverrideController: {fileID: 0}
+  animatorOverrideController: {fileID: 22100000, guid: 7a7f6c0a21eab654ba40a2deb1872bd5, type: 2}
