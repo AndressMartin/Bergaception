@@ -38,7 +38,7 @@ MonoBehaviour:
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 11400000, guid: c6b69b04f7ce3004f9606b26d8520214, type: 2}
-  - text: 'Do you [w] really [w] think you were in control? '
+  - text: 'Did you [w] really [w] think you were in control? '
     timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
