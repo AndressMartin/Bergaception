@@ -21,6 +21,8 @@ public class Maca : ItemColetavel
 
     public override void PegarItem()
     {
+        Debug.Log("Hud: " + character.Hud + ", ID: " + Id);
+
         character.PegueiItenChao(this);
         gameObject.SetActive(false);
         character.Hud.TrocarIconeItem(Id);

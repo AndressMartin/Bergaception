@@ -11,7 +11,7 @@ public class ItemColetavel : MonoBehaviour
     public int quantidadeUsos;
     private void Start()
     {
-        character = FindObjectOfType<Character>();
+        character = FindObjectOfType<BasicRigidBodyPush>().GetComponent<Character>();
     }
     public virtual void PegarItem()
     {

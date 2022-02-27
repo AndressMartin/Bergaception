@@ -465,7 +465,7 @@ namespace StarterAssets
 			CreatedCannonball.transform.position = ShotPoint.transform.position;
 			CreatedCannonball.transform.rotation = ShotPoint.transform.rotation;
 			CreatedCannonball.GetComponent<Rigidbody>().velocity = ShotPoint.transform.up * blastPower;
-			Debug.LogError("Test");
+			//Debug.LogError("Test");
 		}
 		public void DropItem()
 		{

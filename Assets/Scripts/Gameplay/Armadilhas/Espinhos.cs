@@ -65,7 +65,7 @@ public class Espinhos : MonoBehaviour
 
     private void OnTriggerEnter(Collider colisao)
     {
-        if (colisao.CompareTag("Player") || colisao.CompareTag("Enemy"))
+        if (colisao.CompareTag("Player"))
         {
             colisao.GetComponent<Character>().ReceberDano(dano);
         }
