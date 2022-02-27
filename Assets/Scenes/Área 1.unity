@@ -12035,6 +12035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7117523169468217762, guid: 17db4dbe67faa9a49baf44073f06ba93, type: 3}
+      propertyPath: cruzouPortal
+      value: 
+      objectReference: {fileID: 11400000, guid: 365f58957381d5e49b0a06df6d0c169b, type: 2}
     - target: {fileID: 9175857304246414107, guid: 17db4dbe67faa9a49baf44073f06ba93, type: 3}
       propertyPath: m_Name
       value: Player
@@ -20949,8 +20953,8 @@ GameObject:
   - component: {fileID: 1433546824}
   - component: {fileID: 1433546827}
   - component: {fileID: 1433546826}
-  - component: {fileID: 1433546825}
   - component: {fileID: 1433546828}
+  - component: {fileID: 1433546825}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -20973,8 +20977,8 @@ Transform:
   m_Father: {fileID: 1053017636}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1433546825
-CapsuleCollider:
+--- !u!65 &1433546825
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20983,9 +20987,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1433546826
 MeshRenderer:
