@@ -16,7 +16,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 4ae8c4dc462d3f14199e1a6640ea6326, type: 2}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: VoidEvent, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -34,32 +34,32 @@ MonoBehaviour:
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
   - text: "Ha ha ha ha ha\u2026"
-    timeToWait: 3
+    timeToWait: 1
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 11400000, guid: c6b69b04f7ce3004f9606b26d8520214, type: 2}
   - text: 'Did you [w] really [w] think you were in control? '
-    timeToWait: 3
+    timeToWait: 2
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
   - text: 'That''s... '
-    timeToWait: 2
+    timeToWait: 1
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
   - text: Quite sad really.
-    timeToWait: 3
+    timeToWait: 2
     type: 0
     eventToWaitFor: {fileID: 11400000, guid: cd522bb6cf4666a498ad93d8def54e22, type: 2}
     fireAtEnd: {fileID: 11400000, guid: ed7047b1cbb421e48a75b68b041f35ab, type: 2}
-  - text: Ha ha ha ha ha!
-    timeToWait: 2
+  - text: Ha ha ha ha ha
+    timeToWait: 0
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
   - text: "You reaaally think I\u2019ll just let you wander around, "
-    timeToWait: 2
+    timeToWait: 1
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
@@ -73,18 +73,18 @@ MonoBehaviour:
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
-  - text: This is quite amuzing. I'm gonna be honest.
-    timeToWait: 4
+  - text: I'm gonna be honest, this is quite amuzing.
+    timeToWait: 2
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
   - text: If you're so keen on wandering around like a mouse...
-    timeToWait: 4
+    timeToWait: 2
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
   - text: I suppose I could play the cat?
-    timeToWait: 4
+    timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
