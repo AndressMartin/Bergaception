@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class SavePlayerRespawn : MonoBehaviour
 {
-    public bool tutorialPlayed;
     
     public void SetTutorialAsPlayed()
     {
         PlayerPrefs.SetInt("tutorialPlayed", 1);
+    }
+
+    public void ResetTutorialPlayed()
+    {
+        PlayerPrefs.SetInt("tutorialPlayed", 0);
     }
 }

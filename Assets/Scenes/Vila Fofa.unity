@@ -622,6 +622,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 867794841}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   time: 0
 --- !u!1001 &20942939
 PrefabInstance:
@@ -4782,7 +4794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df460e09581ac3645a468ddc8e9a1d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinematicOn: 0
+  cinematicOn: 1
   skipCinematic: {fileID: 11400000, guid: 6b5a44226042c2745ac6171813b7a2a2, type: 2}
   startCinematic: {fileID: 11400000, guid: cc1af002f8b85124a8c0091c9339a11b, type: 2}
 --- !u!114 &268648727
@@ -14544,6 +14556,8 @@ GameObject:
   m_Component:
   - component: {fileID: 794360514}
   - component: {fileID: 794360515}
+  - component: {fileID: 794360517}
+  - component: {fileID: 794360516}
   m_Layer: 0
   m_Name: SceneController
   m_TagString: Untagged
@@ -14578,6 +14592,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoadingCompleted: {fileID: 11400000, guid: f40cdda3aa4e79245b8a6672eb355838, type: 2}
+--- !u!114 &794360516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794360513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd387a764a5058e4886283a82eb3cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  responseSkip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 6b5a44226042c2745ac6171813b7a2a2, type: 2}
+        m_TargetAssemblyTypeName: VoidEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  responsePlay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bc9923b55b651a64c96b024fcb99cc7c, type: 2}
+        m_TargetAssemblyTypeName: VoidEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &794360517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794360513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b973dab82c89bad44b76a765f06b8447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &799282087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18824,6 +18892,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 794360517}
+        m_TargetAssemblyTypeName: SavePlayerRespawn, Assembly-CSharp
+        m_MethodName: SetTutorialAsPlayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   time: 0
 --- !u!1001 &1142587524
 PrefabInstance:
@@ -19247,9 +19327,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: bc9923b55b651a64c96b024fcb99cc7c, type: 2}
-        m_TargetAssemblyTypeName: VoidEvent, Assembly-CSharp
-        m_MethodName: Raise
+      - m_Target: {fileID: 794360516}
+        m_TargetAssemblyTypeName: SkipContent, Assembly-CSharp
+        m_MethodName: SkipIfRespawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30000,6 +30080,18 @@ MonoBehaviour:
       - m_Target: {fileID: 867794841}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 794360517}
+        m_TargetAssemblyTypeName: SavePlayerRespawn, Assembly-CSharp
+        m_MethodName: ResetTutorialPlayed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
