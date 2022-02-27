@@ -32,7 +32,7 @@ public class Enemy : Character
 
         }
     }
-    public override void teste()
+    public override void ZerarBoleanosAnimcao()
     {
         IA_enemy.AllBoolFalse();
     }
@@ -68,6 +68,33 @@ public class Enemy : Character
     {
         morto = true;
         IA_enemy.Morrer();
+        ZerarBoleanosAnimcao();
+        ToggleWeaponCollideOff();
+
+        if (GetComponent<EventosInimigos>())
+        {
+            GetComponent<EventosInimigos>().ChamarEvento();
+        }
+
+    }
+    public void TomarDAno()
+    {
+        if (!morto)
+        {
+            vida -= dano;
+
+            if (vida <= 0)
+            {
+                morto = true;
+                Morrer();
+            }
+            else
+            {
+                ZerarBoleanosAnimcao();
+                recebeuDano?.Invoke();
+                ToggleWeaponCollideOff();
+            }
+        }
     }
 
 

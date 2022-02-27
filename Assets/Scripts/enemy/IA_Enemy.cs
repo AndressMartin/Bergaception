@@ -23,6 +23,8 @@ public class IA_Enemy : MonoBehaviour
 
     public bool parar;
 
+    private Vector3 posicaoOrigem;
+
     [SerializeField]private float _animationBlend;
 
     //Enuns
@@ -36,6 +38,8 @@ public class IA_Enemy : MonoBehaviour
         enemyMovement = _enemyMovement;
         objetoPlayer = _player;
         enemy = _enemy;
+
+        posicaoOrigem = transform.position;
 
         AssignAnimationIDs();
         _animator = GetComponent<Animator>();
@@ -61,7 +65,7 @@ public class IA_Enemy : MonoBehaviour
 
     void DecisaoAcoes()
     {
-        if(enemyVision.GetPlayerVision)
+        if(enemyVision.GetPlayerVision && !objetoPlayer.GetComponent<Character>().morto)
         {
             if (enemyAttackRange.GetPlayerZonaAtaque)
             {
@@ -115,12 +119,31 @@ public class IA_Enemy : MonoBehaviour
     {
         if (ChegouNaDistancia(enemyMovement.GetListaPatrulha[enemyMovement.GetIndiceListaPatrulha].position))
         {
-            enemyMovement.GerarNovoPontoOrdenado();
+            if (enemyMovement.GetListaPatrulha.Count > 1)
+            {
+                enemyMovement.GerarNovoPontoOrdenado();
+            }
+            else
+            {
+                if (ChegouNaDistancia(posicaoOrigem))
+                {
+                    AnimcaoIdle();
+                }
+                else
+                {
+                    Mover(posicaoOrigem);
+                }
+            }
         }
         else
         {
             Mover(enemyMovement.GetListaPatrulha[enemyMovement.GetIndiceListaPatrulha].position);
         }
+    }
+    void AnimcaoIdle()
+    {
+        _animator.SetFloat(_animIDSpeed, 0);
+
     }
     void RodearPlayer()
     {
@@ -146,10 +169,7 @@ public class IA_Enemy : MonoBehaviour
     }
     void Atacar()
     {
-        if(!ChegouNaDistancia(objetoPlayer.transform.position))
-        {
-            transform.LookAt(objetoPlayer.transform);
-        }
+
 
         _animator.SetBool(_animIDAttack, true);
         enemy.Atacar();

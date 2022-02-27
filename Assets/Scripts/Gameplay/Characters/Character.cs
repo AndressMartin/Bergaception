@@ -83,32 +83,45 @@ public class Character : MonoBehaviour
     }
     public virtual void Morrer()
     {
+        ZerarBoleanosAnimcao();
         GetComponent<Enemy>()?.MorrerA();
         ToggleWeaponCollideOff();
+        FindObjectOfType<AudioManager>().Play("Dead");
     }
     public virtual bool ReceberDano(int dano)
     {
-        if (!morto)
+        if (GetComponent<Enemy>())
         {
-            vida -= dano;
-
-            if (personagem == true)
+            GetComponent<Enemy>().TomarDAno();
+        }
+        else
+        {
+            if (!morto)
             {
-                hud.AtualizarHP(vida);
-            }
+                vida -= dano;
+
+                if (personagem == true)
+                {
+                    hud.AtualizarHP(vida);
+                }
 
                 if (vida <= 0)
-            {
-                morto = true;
-                Morrer();
+                {
+                    morto = true;
+                    Morrer();
+
+                }
+                else
+                {
+                    ZerarBoleanosAnimcao();
+                    recebeuDano?.Invoke();
+                    ToggleWeaponCollideOff();
+                }
             }
-            teste();
-            recebeuDano?.Invoke();
-            ToggleWeaponCollideOff();
         }
         return morto;
     }
-    public virtual void teste()
+    public virtual void ZerarBoleanosAnimcao()
     {
         GetComponent<ThirdPersonController>()?.AllBoolFalse();
     }

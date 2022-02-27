@@ -77,6 +77,7 @@ namespace StarterAssets
 			throwActionReference.action.performed += context =>
 			{
 				throwPerformed.Invoke();
+				FindObjectOfType<AudioManager>().Play("Throw");
 			};
 			throwActionReference.action.canceled += context =>
 			{

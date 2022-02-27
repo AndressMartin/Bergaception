@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Espada
   m_EditorClassIdentifier: 
   nome: ArmaInimigoV1
-  dano: 5
+  dano: 1

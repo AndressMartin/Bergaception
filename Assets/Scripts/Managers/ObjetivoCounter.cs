@@ -23,4 +23,26 @@ public class ObjetivoCounter : MonoBehaviour
     }
 
     #endregion
+
+    #region Objetivo dos Inimigos
+
+    private int inimigosMortos = 0;
+    [SerializeField] private int quantidadeInimigosParaMatar;
+
+    public void ObjetivoInimigo(int inimigo)
+    {
+        inimigosMortos += inimigo;
+
+        if (inimigosMortos >= quantidadeInimigosParaMatar)
+        {
+            InimigosMortosCompleto(inimigosMortos);
+        }
+    }
+
+    private void InimigosMortosCompleto(int inimigo)
+    {
+        eventoCompletoComInt.Raise(inimigo);
+    }
+
+    #endregion
 }
