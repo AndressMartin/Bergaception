@@ -399,6 +399,15 @@ namespace StarterAssets
 			}
 		}
 
+		public void LaunchUpwards()
+        {
+			Debug.Log("Launching Upwards");
+			Grounded = true;
+			_input.jump = true;
+			JumpOrDash();
+			player.ReceberDano(1);
+		}
+
 		public void Attack()
         {
 			if (_input.attack && !_animator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Attack3"))

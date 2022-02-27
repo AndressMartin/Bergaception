@@ -30370,6 +30370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Tile_Cube_Flat_Water_02
       objectReference: {fileID: 0}
+    - target: {fileID: 5337485569109791871, guid: 812191b02b720344c944775d47fb0227, type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 5339464509601839917, guid: 812191b02b720344c944775d47fb0227, type: 3}
       propertyPath: m_RootOrder
       value: 170
@@ -30416,3 +30420,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 812191b02b720344c944775d47fb0227, type: 3}
+--- !u!1 &5338869800020093190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5337485569109791871, guid: 812191b02b720344c944775d47fb0227, type: 3}
+  m_PrefabInstance: {fileID: 5338869800020093189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5338869800020093191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338869800020093190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d6990df61b46544b7035da5e2c7fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
