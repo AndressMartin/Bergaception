@@ -85,6 +85,7 @@ public class Character : MonoBehaviour
     {
         GetComponent<Enemy>()?.MorrerA();
         ToggleWeaponCollideOff();
+        FindObjectOfType<AudioManager>().Play("Dead");
     }
     public virtual bool ReceberDano(int dano)
     {
@@ -104,6 +105,7 @@ public class Character : MonoBehaviour
             }
             teste();
             recebeuDano?.Invoke();
+            FindObjectOfType<AudioManager>().Play("Hurt");
             ToggleWeaponCollideOff();
         }
         return morto;

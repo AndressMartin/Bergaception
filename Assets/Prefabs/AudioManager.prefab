@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &391374324853270899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391374324853270901}
+  - component: {fileID: 391374324853270900}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391374324853270901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391374324853270899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.662652, y: -6.218234, z: -10.060516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &391374324853270900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391374324853270899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870236c10252f534ca8d2b1a58a714d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PlayerJump
+    clip: {fileID: 8300000, guid: b92f6e0763de69d4d9317458d4c5526a, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Attack1
+    clip: {fileID: 8300000, guid: fa3878019adcc234ebe04c3665dc22b3, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Attack2
+    clip: {fileID: 8300000, guid: 20cc1f9a4ff86f2499dd6663a7391caa, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Attack3
+    clip: {fileID: 8300000, guid: 91e0376a245cb414a8bd8eab91d11891, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Dead
+    clip: {fileID: 8300000, guid: ab99d4b3ef990b6418e7532da00021f1, type: 3}
+    volume: 1
+    pitch: 1.21
+    source: {fileID: 0}
+  - name: Throw
+    clip: {fileID: 8300000, guid: a1a7d48071ffad04a8c027536a93f385, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - name: Hurt
+    clip: {fileID: 8300000, guid: 67731e83ef04aa34bb7f63299acb2673, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
