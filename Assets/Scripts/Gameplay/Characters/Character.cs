@@ -86,6 +86,7 @@ public class Character : MonoBehaviour
         ZerarBoleanosAnimcao();
         GetComponent<Enemy>()?.MorrerA();
         ToggleWeaponCollideOff();
+        FindObjectOfType<AudioManager>().Play("Dead");
     }
     public virtual bool ReceberDano(int dano)
     {

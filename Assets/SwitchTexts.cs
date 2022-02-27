@@ -12,6 +12,16 @@ public class SwitchTexts : MonoBehaviour
     {
         for (int i = 0; i < texts.Count; i++)
         {
+            texts[i].text = texts[i].textHolder.text;
+            texts[i].textHolder.text = texts[i].textToReplace;
+        }
+    }
+
+    public void RevertText()
+    {
+        for (int i = 0; i < texts.Count; i++)
+        {
+            texts[i].textHolder.text = texts[i].text;
             texts[i].textHolder.text = texts[i].textToReplace;
         }
     }

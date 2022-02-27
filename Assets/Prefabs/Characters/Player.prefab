@@ -201,6 +201,10 @@ MonoBehaviour:
   projection: {fileID: 3008172332221304510}
   ShotPoint: {fileID: 8626569626000768515}
   blastPower: 7
+  allowMove: 1
+  allowJump: 1
+  allowMouse: 1
+  allowInteract: 1
 --- !u!114 &9175857304246414111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +254,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   analogMovement: 0
+  wFMovement: 0
+  wFJump: 0
+  wFInteraction: 0
+  wFMouse: 0
+  fireMove: {fileID: 11400000, guid: 082f1944a74fef243a8d95add9cbb6c1, type: 2}
+  fireJump: {fileID: 11400000, guid: 7f4a6edad90807a4fae41e8493f40799, type: 2}
+  fireInteraction: {fileID: 11400000, guid: 2aa0d02ef6648e74b925dcc9a68a1d11, type: 2}
+  fireMouse: {fileID: 11400000, guid: d00c1939c5e8aaa42a4a850cf9341b67, type: 2}
   cursorLocked: 0
   cursorInputForLook: 1
 --- !u!114 &9175857304246414109
