@@ -38,7 +38,7 @@ MonoBehaviour:
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 11400000, guid: c6b69b04f7ce3004f9606b26d8520214, type: 2}
-  - text: 'You [w] really [w] think you were in control? '
+  - text: 'Do you [w] really [w] think you were in control? '
     timeToWait: 3
     type: 1
     eventToWaitFor: {fileID: 0}
@@ -53,9 +53,48 @@ MonoBehaviour:
     type: 0
     eventToWaitFor: {fileID: 11400000, guid: cd522bb6cf4666a498ad93d8def54e22, type: 2}
     fireAtEnd: {fileID: 11400000, guid: ed7047b1cbb421e48a75b68b041f35ab, type: 2}
-  - text: "You reaaally think I\u2019ll just let you wander around, like a fucking
-      mouse?"
-    timeToWait: 3
+  - text: Ha ha ha ha ha!
+    timeToWait: 2
+    type: 1
+    eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
+  - text: "You reaaally think I\u2019ll just let you wander around, "
+    timeToWait: 2
+    type: 1
+    eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
+  - text: like a [w] fucking mouse? [w]
+    timeToWait: 2
+    type: 1
+    eventToWaitFor: {fileID: 11400000, guid: 3d855588dae9c7e48b5fbc26844afa43, type: 2}
+    fireAtEnd: {fileID: 11400000, guid: e11920590dab4d047a82176d52f80443, type: 2}
+  - text: Yeah, not gonna happen.
+    timeToWait: 1.5
+    type: 1
+    eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
+  - text: This is quite amuzing. I'm gonna be honest.
+    timeToWait: 4
+    type: 1
+    eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
+  - text: If you're so keen on wandering around like a mouse...
+    timeToWait: 4
+    type: 1
+    eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
+  - text: I suppose I could play the cat?
+    timeToWait: 4
+    type: 1
+    eventToWaitFor: {fileID: 0}
+    fireAtEnd: {fileID: 0}
+  - text: ' '
+    timeToWait: 0.5
+    type: 1
+    eventToWaitFor: {fileID: 11400000, guid: 53f779f77b697ae4f87c3cb0a43d9efe, type: 2}
+    fireAtEnd: {fileID: 11400000, guid: 9aec0bff9bc8d654cbadfa640ac383b2, type: 2}
+  - text: ' '
+    timeToWait: 0.5
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}

@@ -109,6 +109,7 @@ namespace StarterAssets
 		public Transform ShotPoint;
 		public float blastPower;
 
+
         private void Awake()
 		{
 			// get a reference to our main camera
@@ -140,19 +141,47 @@ namespace StarterAssets
 			_fallTimeoutDelta = FallTimeout;
 		}
 
-        private void Update()
+
+		#region inputBlockers
+		public bool allowMove;
+		public bool allowJump;
+		public bool allowMouse;
+		public bool allowInteract;
+
+		public void SetAllowMove(bool boo)
+		{
+			allowMove = boo;
+		}
+		public void SetAllowJump(bool boo)
+		{
+			allowJump = boo;
+		}
+		public void SetAllowMouse(bool boo)
+		{
+			allowMouse = boo;
+		}
+		public void SetAllowInteract(bool boo)
+		{
+			allowInteract = boo;
+		}
+		#endregion
+
+		
+
+		private void Update()
 		{
 
 			GroundedCheck();
-			JumpOrDash();
-			Move();
-			Attack();
+			if (allowJump) JumpOrDash();
+			if(allowMove) Move();
+			if (allowMouse) Attack();
 			//Throw();
 			DropItem();
 			ApertarTeclaK();
 			Morrer();
-			Interagir();
+			if (allowInteract) Interagir();
 		}
+
 
 
         private void LateUpdate()
@@ -267,7 +296,6 @@ namespace StarterAssets
 			{
 				_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
 				float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
-
 				// rotate to face input direction relative to camera position
 				transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 			}
@@ -406,17 +434,17 @@ namespace StarterAssets
 
 		private void ThrowPerformed()
 		{
-			_animator.SetTrigger("EndThrow");
+			if (allowMouse) _animator.SetTrigger("EndThrow");
 		}
 
 		private void ThrowStarted()
 		{
-			_animator.SetTrigger(_animIDThrow);
+			if(allowMouse) _animator.SetTrigger(_animIDThrow);
 		}
 
 		private void ThrowCanceled()
 		{
-			_animator.SetTrigger("CancelThrow");
+			if (allowMouse) _animator.SetTrigger("CancelThrow");
 		}
 
 		public void ThrowItem()
@@ -460,7 +488,7 @@ namespace StarterAssets
 
 			if (_input.interact)
             {
-                if (player.TemItem())
+				if (player.TemItem())
                 {
 					_animator.SetTrigger(_animIDUse);
 					player.UsarItem();

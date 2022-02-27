@@ -91,7 +91,6 @@ public class SceneController : Singleton<SceneController>
         Debug.Log("Load scene additively " + sceneIndex);
         StartCoroutine(LoadAsynchronously(sceneIndex, LoadSceneMode.Additive, delegate { 
             SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(sceneIndex));
-            Lightmapping.BakeAsync();
         }));
     }
     public void LoadScene(int sceneIndex)
