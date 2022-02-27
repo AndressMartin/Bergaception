@@ -46,36 +46,36 @@ MonoBehaviour:
   sounds:
   - name: PlayerJump
     clip: {fileID: 8300000, guid: b92f6e0763de69d4d9317458d4c5526a, type: 3}
-    volume: 1
+    volume: 0.292
     pitch: 1
     source: {fileID: 0}
   - name: Attack1
     clip: {fileID: 8300000, guid: fa3878019adcc234ebe04c3665dc22b3, type: 3}
-    volume: 1
+    volume: 0.296
     pitch: 1
     source: {fileID: 0}
   - name: Attack2
     clip: {fileID: 8300000, guid: 20cc1f9a4ff86f2499dd6663a7391caa, type: 3}
-    volume: 1
+    volume: 0.272
     pitch: 1
     source: {fileID: 0}
   - name: Attack3
     clip: {fileID: 8300000, guid: 91e0376a245cb414a8bd8eab91d11891, type: 3}
-    volume: 1
+    volume: 0.276
     pitch: 1
     source: {fileID: 0}
   - name: Dead
     clip: {fileID: 8300000, guid: ab99d4b3ef990b6418e7532da00021f1, type: 3}
-    volume: 1
+    volume: 0.3
     pitch: 1.21
     source: {fileID: 0}
   - name: Throw
     clip: {fileID: 8300000, guid: a1a7d48071ffad04a8c027536a93f385, type: 3}
-    volume: 1
+    volume: 0.284
     pitch: 1
     source: {fileID: 0}
   - name: Hurt
     clip: {fileID: 8300000, guid: 67731e83ef04aa34bb7f63299acb2673, type: 3}
-    volume: 1
+    volume: 0.308
     pitch: 1
     source: {fileID: 0}

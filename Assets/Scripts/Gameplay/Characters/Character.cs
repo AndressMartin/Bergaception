@@ -1,4 +1,6 @@
 using StarterAssets;
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -86,8 +88,16 @@ public class Character : MonoBehaviour
         ZerarBoleanosAnimcao();
         GetComponent<Enemy>()?.MorrerA();
         ToggleWeaponCollideOff();
+        StartCoroutine(Respawn());
         FindObjectOfType<AudioManager>().Play("Dead");
     }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<SceneController>().ReloadScene();
+    }
+
     public virtual bool ReceberDano(int dano)
     {
         if (GetComponent<Enemy>())

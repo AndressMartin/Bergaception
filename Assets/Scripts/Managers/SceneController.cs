@@ -6,38 +6,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public enum SceneIndexes
-{
-    MANAGER = 0,
-    TITLE_SCREEN = 1,
-    LOADING_SCREEN_FTUE = 2,
-    LOADING_SCREEN = 3,
-    LEVEL_SELECTION = 4
-}
-
-public enum LevelIndexes
-{
-    level1 = 0,
-    level2 = 1,
-    level3 = 2,
-    level4 = 3
-}
 
 public class SceneController : Singleton<SceneController>
 {
     public static UnityEvent nextScene;
 
     [Header("Initialization")]
-    //public MusicManage musicManager;
-    //public PointManage pointManager;
-
-    //public LoadingScreen loadingScreen;
-
-    //static bool instantiateMusic = false;
-    //public static bool paused = false;
     static int previousScene;
     static int currentScene;
-    //static bool ftue = true;
     static bool isDone = false;
 
     public VoidEvent sceneLoadingCompleted;
@@ -45,9 +21,6 @@ public class SceneController : Singleton<SceneController>
     //TODO: Save FTUE
     private void Awake()
     {
-        //if (nextScene == null)
-        //    nextScene = new UnityEvent();
-        //nextScene.AddListener(LoadNextScene);
     }
 
     private void Start()
@@ -69,7 +42,6 @@ public class SceneController : Singleton<SceneController>
         while (!operation.isDone)
         {
             float progress = Mathf.Clamp01(operation.progress / .9f);
-            //Debug.Log(progress);
 
             yield return null;
         }
@@ -96,5 +68,10 @@ public class SceneController : Singleton<SceneController>
     public void LoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
