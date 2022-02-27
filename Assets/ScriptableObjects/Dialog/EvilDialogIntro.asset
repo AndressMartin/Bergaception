@@ -73,7 +73,7 @@ MonoBehaviour:
     type: 1
     eventToWaitFor: {fileID: 0}
     fireAtEnd: {fileID: 0}
-  - text: I'm gonna be honest, this is quite amuzing.
+  - text: I'm gonna be honest, this is quite amusing.
     timeToWait: 2
     type: 1
     eventToWaitFor: {fileID: 0}

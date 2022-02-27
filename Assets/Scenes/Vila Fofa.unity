@@ -4657,7 +4657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df460e09581ac3645a468ddc8e9a1d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cinematicOn: 0
+  cinematicOn: 1
   skipCinematic: {fileID: 11400000, guid: 6b5a44226042c2745ac6171813b7a2a2, type: 2}
   startCinematic: {fileID: 11400000, guid: cc1af002f8b85124a8c0091c9339a11b, type: 2}
 --- !u!114 &268648727
@@ -14595,7 +14595,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   responseSkip:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bc9923b55b651a64c96b024fcb99cc7c, type: 2}
+        m_TargetAssemblyTypeName: VoidEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   responsePlay:
     m_PersistentCalls:
       m_Calls:
