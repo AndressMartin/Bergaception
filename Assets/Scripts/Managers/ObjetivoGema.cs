@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjetivoGema : MonoBehaviour
 {
     bool ativo = false;
+    public VoidEvent endGame;
     public void Ativar()
     {
         ativo = true;
@@ -18,6 +19,7 @@ public class ObjetivoGema : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("terminar jogo");
+            endGame.Raise();
         }
     }
 }
