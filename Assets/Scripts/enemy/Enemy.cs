@@ -32,7 +32,7 @@ public class Enemy : Character
 
         }
     }
-    public override void ZerarBoleanosAnimcao()
+    public override void ZerarBoleanosAnimacao()
     {
         IA_enemy.AllBoolFalse();
     }
@@ -68,7 +68,7 @@ public class Enemy : Character
     {
         morto = true;
         IA_enemy.Morrer();
-        ZerarBoleanosAnimcao();
+        ZerarBoleanosAnimacao();
         ToggleWeaponCollideOff();
         FindObjectOfType<AudioManager>().Play("Dead");
 
@@ -92,7 +92,7 @@ public class Enemy : Character
             else
             {
                 FindObjectOfType<AudioManager>().Play("Hurt");
-                ZerarBoleanosAnimcao();
+                ZerarBoleanosAnimacao();
                 recebeuDano?.Invoke();
                 ToggleWeaponCollideOff();
             }
