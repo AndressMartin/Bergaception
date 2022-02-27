@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3984086998893554005}
   - component: {fileID: 4012456305999002780}
   m_Layer: 0
-  m_Name: SM_Prop_Tool_Pitchfork_01
+  m_Name: SM_Hammer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4011266763626608219}
   m_LocalRotation: {x: -0.31744653, y: 0.32049692, z: -0.60494274, w: 0.65616596}
-  m_LocalPosition: {x: 5.404855, y: 3.2026021, z: 4.5996685}
-  m_LocalScale: {x: 121.997314, y: 121.997314, z: 121.997314}
+  m_LocalPosition: {x: -0.3, y: 2.6, z: 12.4}
+  m_LocalScale: {x: 80, y: 80, z: 80}
   m_Children: []
   m_Father: {fileID: 4012456305095832212}
   m_RootOrder: 3
@@ -5066,7 +5066,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4012456306071196030
 GameObject:
