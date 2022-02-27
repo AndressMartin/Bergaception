@@ -351,7 +351,7 @@ namespace StarterAssets
 						_animator.SetBool(_animIDJump, true);
 					}
 
-					FindObjectOfType<AudioManager>().Play("PlayerJump");
+					FindObjectOfType<AudioManager>()?.Play("PlayerJump");
 				}
 				else if (_input.dash && _jumpTimeoutDelta <= 0.0f)
                 {
@@ -419,14 +419,14 @@ namespace StarterAssets
 				int soundVariable = UnityEngine.Random.Range(1, 4);
                 if (soundVariable == 1 )
                 {
-					FindObjectOfType<AudioManager>().Play("Attack1");
+					FindObjectOfType<AudioManager>()?.Play("Attack1");
                 }else if (soundVariable == 2)
                 {
-					FindObjectOfType<AudioManager>().Play("Attack2");
+					FindObjectOfType<AudioManager>()?.Play("Attack2");
 				}
                 else
                 {
-					FindObjectOfType<AudioManager>().Play("Attack3");
+					FindObjectOfType<AudioManager>()?.Play("Attack3");
 				}
             }
 			_input.attack = false;
