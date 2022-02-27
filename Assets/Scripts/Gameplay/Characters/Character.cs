@@ -93,12 +93,21 @@ public class Character : MonoBehaviour
         {
             StartCoroutine(Respawn());
         }
+        if (gameObject.CompareTag("Enemy"))
+        {
+            StartCoroutine(SeDeletar());
+        }
     }
 
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(4);
         FindObjectOfType<SceneController>().ReloadScene();
+    }
+    private IEnumerator SeDeletar()
+    {
+        yield return new WaitForSeconds(4);
+        gameObject.SetActive(false);
     }
 
     public virtual bool ReceberDano(int dano)

@@ -24,4 +24,8 @@ public class ObjetivoPortal : MonoBehaviour
             cruzouPortal.Raise();
         }
     }
+    public void Chamar()
+    {
+        cruzouPortal.Raise();
+    }
 }
