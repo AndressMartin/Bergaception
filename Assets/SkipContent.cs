@@ -11,11 +11,11 @@ public class SkipContent : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("tutorialPlayed") == 1)
         {
-            responseSkip.Invoke();
+            responseSkip?.Invoke();
         }
         else
         {
-            responsePlay.Invoke();
+            responsePlay?.Invoke();
         }
     }
 
