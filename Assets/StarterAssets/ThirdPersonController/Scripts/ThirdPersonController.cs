@@ -170,21 +170,24 @@ namespace StarterAssets
 
 		private void Update()
 		{
-
-			GroundedCheck();
-			if (allowJump) JumpOrDash();
-			if(allowMove) Move();
-			if (allowMouse) Attack();
-			//Throw();
-			DropItem();
-			ApertarTeclaK();
+			if (!player.morto)
+			{
+				GroundedCheck();
+				if (allowJump) JumpOrDash();
+				if (allowMove) Move();
+				if (allowMouse) Attack();
+				//Throw();
+				DropItem();
+				ApertarTeclaK();
+				if (allowInteract) Interagir();
+			}
 			Morrer();
-			if (allowInteract) Interagir();
+
 		}
 
 
 
-        private void LateUpdate()
+		private void LateUpdate()
 		{
 			CameraRotation();
 		}
