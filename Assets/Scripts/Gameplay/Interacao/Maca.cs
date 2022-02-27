@@ -25,7 +25,7 @@ public class Maca : ItemColetavel
         gameObject.SetActive(false);
         character.Hud.TrocarIconeItem(Id);
 
-        eventoContador.Raise(1);
+        eventoContador?.Raise(1);
     }
 
     public override void Dropar()
