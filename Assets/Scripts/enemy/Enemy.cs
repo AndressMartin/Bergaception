@@ -70,6 +70,7 @@ public class Enemy : Character
         IA_enemy.Morrer();
         ZerarBoleanosAnimcao();
         ToggleWeaponCollideOff();
+        FindObjectOfType<AudioManager>().Play("Dead");
 
         if (GetComponent<EventosInimigos>())
         {
@@ -90,6 +91,7 @@ public class Enemy : Character
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("Hurt");
                 ZerarBoleanosAnimcao();
                 recebeuDano?.Invoke();
                 ToggleWeaponCollideOff();

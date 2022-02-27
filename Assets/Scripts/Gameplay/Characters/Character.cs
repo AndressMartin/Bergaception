@@ -113,6 +113,7 @@ public class Character : MonoBehaviour
                 }
                 else
                 {
+                    FindObjectOfType<AudioManager>().Play("Hurt");
                     ZerarBoleanosAnimcao();
                     recebeuDano?.Invoke();
                     ToggleWeaponCollideOff();
