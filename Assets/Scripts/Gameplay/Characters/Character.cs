@@ -88,7 +88,10 @@ public class Character : MonoBehaviour
         ZerarBoleanosAnimcao();
         GetComponent<Enemy>()?.MorrerA();
         ToggleWeaponCollideOff();
-        StartCoroutine(Respawn());
+        if (gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(Respawn());
+        }
         FindObjectOfType<AudioManager>().Play("Dead");
     }
 
