@@ -85,7 +85,7 @@ public class Character : MonoBehaviour
     }
     public virtual void Morrer()
     {
-        ZerarBoleanosAnimcao();
+        ZerarBoleanosAnimacao();
         GetComponent<Enemy>()?.MorrerA();
         ToggleWeaponCollideOff();
         FindObjectOfType<AudioManager>().Play("Dead");
@@ -136,7 +136,7 @@ public class Character : MonoBehaviour
                 else
                 {
                     FindObjectOfType<AudioManager>().Play("Hurt");
-                    ZerarBoleanosAnimcao();
+                    ZerarBoleanosAnimacao();
                     recebeuDano?.Invoke();
                     ToggleWeaponCollideOff();
                 }
@@ -144,7 +144,7 @@ public class Character : MonoBehaviour
         }
         return morto;
     }
-    public virtual void ZerarBoleanosAnimcao()
+    public virtual void ZerarBoleanosAnimacao()
     {
         GetComponent<ThirdPersonController>()?.AllBoolFalse();
     }
