@@ -29,6 +29,37 @@ namespace StarterAssets
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
+		#region movementEvents
+
+		[Header("Booleans and events for tutorial")]
+		public bool wFMovement;
+		public bool wFJump;
+		public bool wFInteraction;
+		public bool wFMouse;
+		public VoidEvent fireMove;
+		public VoidEvent fireJump;
+		public VoidEvent fireInteraction;
+		public VoidEvent fireMouse;
+
+		public void SetMovement()
+		{
+			wFMovement = true;
+		}
+		public void SetJump()
+		{
+			wFJump = true;
+		}
+		public void SetInteract()
+		{
+			wFInteraction = true;
+		}
+		public void SetMouse()
+		{
+			wFMouse = true;
+		}
+		#endregion
+
+
 #if !UNITY_IOS || !UNITY_ANDROID
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
@@ -55,6 +86,12 @@ namespace StarterAssets
 
         public void OnMove(InputValue value)
 		{
+			if (value.Get<Vector2>() != Vector2.zero && wFMovement)
+			{
+				Debug.Log("Pressed Move");
+				fireMove.Raise();
+				wFMovement = false;
+			}
 			MoveInput(value.Get<Vector2>());
 		}
 
@@ -68,11 +105,23 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
+			if (value.isPressed && wFJump)
+			{
+				fireJump.Raise();
+				Debug.Log("Pressed Jump");
+				wFJump = false;
+			}
 			JumpInput(value.isPressed);
 		}
 
 		public void OnAttack(InputValue value)
         {
+			if (value.isPressed && wFMouse)
+			{
+				fireMouse.Raise();
+				Debug.Log("Pressed Attack");
+				wFMouse = false;
+			}
 			AttackInput(value.isPressed);
         }
 
@@ -93,6 +142,13 @@ namespace StarterAssets
 
 		public void OnInteract(InputValue value)
         {
+            if (value.isPressed && wFInteraction)
+            {
+				Debug.Log("Pressed interact");
+				fireInteraction.Raise();
+				wFInteraction = false;
+
+			}
 			InteractInput(value.isPressed);
         }
 		public void OnDropItem(InputValue value)

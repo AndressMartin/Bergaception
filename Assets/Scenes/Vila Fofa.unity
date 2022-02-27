@@ -4880,7 +4880,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 54251661}
           m_TargetAssemblyTypeName: SetPositions, Assembly-CSharp
           m_MethodName: SetPosition
           m_Mode: 1
