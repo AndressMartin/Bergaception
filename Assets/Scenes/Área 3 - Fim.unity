@@ -4247,6 +4247,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5351882990455873605, guid: 812191b02b720344c944775d47fb0227, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1366384944, guid: 812191b02b720344c944775d47fb0227, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 812191b02b720344c944775d47fb0227, type: 3}
@@ -12851,7 +12855,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0

@@ -75,7 +75,7 @@ public class IA_Enemy : MonoBehaviour
 
     void DecisaoAcoes()
     {
-        Debug.Log(objetoPlayer);
+        //Debug.Log(objetoPlayer);
         if(enemyVision.GetPlayerVision && !objetoPlayer.GetComponent<Character>().morto)
         {
             if (enemyAttackRange.GetPlayerZonaAtaque)
