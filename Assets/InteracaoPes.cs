@@ -15,7 +15,7 @@ public class InteracaoPes : MonoBehaviour
         if (other.CompareTag("Portal"))
         {
             Debug.Log("Portal");
-            cruzouPortal.Raise();
+            //
         }
     }
 }
