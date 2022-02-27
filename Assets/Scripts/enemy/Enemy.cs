@@ -43,9 +43,11 @@ public class Enemy : Character
         enemyMovement = GetComponent<EnemyMovement>();
         IA_enemy = GetComponent<IA_Enemy>();
         aiPath = GetComponent<AIPath>();
-        
-        player = FindObjectOfType<BasicRigidBodyPush>().gameObject;
 
+        if (player == null)
+        {
+            player = FindObjectOfType<BasicRigidBodyPush>().gameObject;
+        }
         enemyMovement.ReceberScriptObject((EnemyScriptObject)script);
         enemyMovement.Inicar(this.gameObject,aiPath);
 

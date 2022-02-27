@@ -38,6 +38,12 @@ public class IA_Enemy : MonoBehaviour
         enemyMovement = _enemyMovement;
         objetoPlayer = _player;
         enemy = _enemy;
+        
+        if(objetoPlayer == null)
+        {
+            objetoPlayer = FindObjectOfType<BasicRigidBodyPush>().gameObject;
+        }
+        
 
         posicaoOrigem = transform.position;
 
@@ -45,6 +51,10 @@ public class IA_Enemy : MonoBehaviour
         _animator = GetComponent<Animator>();
         enemyAttackRange = GetComponentInChildren<EnemyAttackRange>();
         enemyVision = GetComponentInChildren<EnemyVision>();
+        if(enemyVision == null)
+        {
+            enemyVision = FindObjectOfType<EnemyVision>();
+        }
     }
 
     public void Main()
@@ -65,6 +75,7 @@ public class IA_Enemy : MonoBehaviour
 
     void DecisaoAcoes()
     {
+        Debug.Log(objetoPlayer);
         if(enemyVision.GetPlayerVision && !objetoPlayer.GetComponent<Character>().morto)
         {
             if (enemyAttackRange.GetPlayerZonaAtaque)
